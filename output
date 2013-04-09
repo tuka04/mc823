@@ -1,0 +1,144 @@
+==16326== Memcheck, a memory error detector
+==16326== Copyright (C) 2002-2010, and GNU GPL'd, by Julian Seward et al.
+==16326== Using Valgrind-3.6.1 and LibVEX; rerun with -h for copyright info
+==16326== Command: ./main 2922
+==16326== Parent PID: 2525
+==16326== 
+--16326-- 
+--16326-- Valgrind options:
+--16326--    -v
+--16326--    --leak-check=full
+--16326--    --track-origins=yes
+--16326--    --log-file=output
+--16326-- Contents of /proc/version:
+--16326--   Linux version 2.6.43.8-1.fc15.i686 (mockbuild@x86-14.phx2.fedoraproject.org) (gcc version 4.6.3 20120306 (Red Hat 4.6.3-2) (GCC) ) #1 SMP Mon Jun 4 20:28:56 UTC 2012
+--16326-- Arch and hwcaps: X86, x86-sse1-sse2
+--16326-- Page sizes: currently 4096, max supported 4096
+--16326-- Valgrind library directory: /usr/lib/valgrind
+--16326-- Reading syms from /home/leandro/unicamp/mc823/lab01/main (0x8048000)
+--16326-- Reading syms from /usr/lib/valgrind/memcheck-x86-linux (0x38000000)
+--16326--    object doesn't have a dynamic symbol table
+--16326-- Reading syms from /lib/ld-2.14.1.so (0x4a0f8000)
+--16326--   Considering /usr/lib/debug/.build-id/f1/0e60d10dfa08e23f5ccd104814a72b41c72b10.debug ..
+--16326--   .. build-id is valid
+--16326-- Reading suppressions file: /usr/lib/valgrind/default.supp
+--16326-- REDIR: 0x4a10f440 (strlen) redirected to 0x38052c98 (vgPlain_x86_linux_REDIR_FOR_strlen)
+--16326-- REDIR: 0x4a10f280 (index) redirected to 0x38052c73 (vgPlain_x86_linux_REDIR_FOR_index)
+--16326-- Reading syms from /usr/lib/valgrind/vgpreload_core-x86-linux.so (0x4001000)
+--16326-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-x86-linux.so (0x4003000)
+==16326== WARNING: new redirection conflicts with existing -- ignoring it
+--16326--     new: 0x4a10f280 (index               ) R-> 0x04007250 index
+==16326== WARNING: new redirection conflicts with existing -- ignoring it
+--16326--     new: 0x4a10f440 (strlen              ) R-> 0x040076a0 strlen
+--16326-- Reading syms from /lib/libc-2.14.1.so (0x4a11a000)
+--16326--   Considering /usr/lib/debug/.build-id/5a/9bdbb0d014b6076a8dd184e99d97cfc68d2882.debug ..
+--16326--   .. build-id is valid
+--16326-- REDIR: 0x4a193bd0 (rindex) redirected to 0x4007080 (rindex)
+--16326-- REDIR: 0x4a18f3f0 (malloc) redirected to 0x4006d00 (malloc)
+--16326-- REDIR: 0x4a194460 (memchr) redirected to 0x40083a0 (memchr)
+--16326-- REDIR: 0x4a190480 (calloc) redirected to 0x40053a0 (calloc)
+--16326-- REDIR: 0x4a194930 (memmove) redirected to 0x40014a0 (_vgnU_ifunc_wrapper)
+--16326-- REDIR: 0x4a244530 (__memmove_ssse3) redirected to 0x4009450 (memmove)
+--16326-- REDIR: 0x4a1949f0 (memset) redirected to 0x40014a0 (_vgnU_ifunc_wrapper)
+--16326-- REDIR: 0x4a241530 (__memset_sse2) redirected to 0x40093c0 (memset)
+--16326-- REDIR: 0x4a194600 (bcmp) redirected to 0x40014a0 (_vgnU_ifunc_wrapper)
+--16326-- REDIR: 0x4a24d6e0 (__memcmp_ssse3) redirected to 0x4008fa0 (bcmp)
+--16326-- REDIR: 0x4a193840 (__GI_strlen) redirected to 0x4007680 (__GI_strlen)
+--16326-- REDIR: 0x4a18f960 (free) redirected to 0x4005e60 (free)
+--16326-- REDIR: 0x4a193200 (strcpy) redirected to 0x40076e0 (strcpy)
+--16326-- REDIR: 0x4a193190 (__GI_strcmp) redirected to 0x4008280 (__GI_strcmp)
+--16326-- REDIR: 0x4a1961d0 (strchrnul) redirected to 0x4009570 (strchrnul)
+--16326-- REDIR: 0x4a193900 (strnlen) redirected to 0x4007600 (strnlen)
+==16326== 
+==16326== Process terminating with default action of signal 2 (SIGINT)
+==16326==    at 0x4A1F5B31: accept (socket.S:64)
+==16326==    by 0x8049E1A: start_server (server.c:6)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== HEAP SUMMARY:
+==16326==     in use at exit: 5,944 bytes in 164 blocks
+==16326==   total heap usage: 172 allocs, 8 frees, 7,416 bytes allocated
+==16326== 
+==16326== Searching for pointers to 164 not-freed blocks
+==16326== Checked 53,104 bytes
+==16326== 
+==16326== 33 bytes in 6 blocks are definitely lost in loss record 24 of 41
+==16326==    at 0x4006D69: malloc (vg_replace_malloc.c:236)
+==16326==    by 0x8048F74: readFileBooks (archives.c:46)
+==16326==    by 0x8049E45: load_books (server.c:11)
+==16326==    by 0x8049DFB: start_server (server.c:5)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== 48 bytes in 6 blocks are definitely lost in loss record 27 of 41
+==16326==    at 0x4006D69: malloc (vg_replace_malloc.c:236)
+==16326==    by 0x8048E52: readFileBooks (archives.c:37)
+==16326==    by 0x8049E45: load_books (server.c:11)
+==16326==    by 0x8049DFB: start_server (server.c:5)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== 58 bytes in 6 blocks are definitely lost in loss record 29 of 41
+==16326==    at 0x4006D69: malloc (vg_replace_malloc.c:236)
+==16326==    by 0x8049036: readFileBooks (archives.c:52)
+==16326==    by 0x8049E45: load_books (server.c:11)
+==16326==    by 0x8049DFB: start_server (server.c:5)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== 175 bytes in 6 blocks are definitely lost in loss record 33 of 41
+==16326==    at 0x4006D69: malloc (vg_replace_malloc.c:236)
+==16326==    by 0x8048F13: readFileBooks (archives.c:43)
+==16326==    by 0x8049E45: load_books (server.c:11)
+==16326==    by 0x8049DFB: start_server (server.c:5)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== 197 (44 direct, 153 indirect) bytes in 7 blocks are definitely lost in loss record 34 of 41
+==16326==    at 0x4005447: calloc (vg_replace_malloc.c:467)
+==16326==    by 0x8048AC5: split (common.c:24)
+==16326==    by 0x8048E00: readFileBooks (archives.c:33)
+==16326==    by 0x8049E45: load_books (server.c:11)
+==16326==    by 0x8049DFB: start_server (server.c:5)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== 206 (56 direct, 150 indirect) bytes in 7 blocks are definitely lost in loss record 35 of 41
+==16326==    at 0x4006D69: malloc (vg_replace_malloc.c:236)
+==16326==    by 0x80490D8: insertAutoresList (books.c:8)
+==16326==    by 0x8048E37: readFileBooks (archives.c:36)
+==16326==    by 0x8049E45: load_books (server.c:11)
+==16326==    by 0x8049DFB: start_server (server.c:5)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== 764 (28 direct, 736 indirect) bytes in 1 blocks are definitely lost in loss record 38 of 41
+==16326==    at 0x4006D69: malloc (vg_replace_malloc.c:236)
+==16326==    by 0x8048D85: readFileBooks (archives.c:24)
+==16326==    by 0x8049E45: load_books (server.c:11)
+==16326==    by 0x8049DFB: start_server (server.c:5)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== 1,063 bytes in 6 blocks are definitely lost in loss record 39 of 41
+==16326==    at 0x4006D69: malloc (vg_replace_malloc.c:236)
+==16326==    by 0x8048FD5: readFileBooks (archives.c:49)
+==16326==    by 0x8049E45: load_books (server.c:11)
+==16326==    by 0x8049DFB: start_server (server.c:5)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== 2,522 (196 direct, 2,326 indirect) bytes in 7 blocks are definitely lost in loss record 41 of 41
+==16326==    at 0x4005447: calloc (vg_replace_malloc.c:467)
+==16326==    by 0x8048AC5: split (common.c:24)
+==16326==    by 0x8048DAD: readFileBooks (archives.c:26)
+==16326==    by 0x8049E45: load_books (server.c:11)
+==16326==    by 0x8049DFB: start_server (server.c:5)
+==16326==    by 0x80489BB: main (in /home/leandro/unicamp/mc823/lab01/main)
+==16326== 
+==16326== LEAK SUMMARY:
+==16326==    definitely lost: 1,701 bytes in 52 blocks
+==16326==    indirectly lost: 3,365 bytes in 80 blocks
+==16326==      possibly lost: 0 bytes in 0 blocks
+==16326==    still reachable: 878 bytes in 32 blocks
+==16326==         suppressed: 0 bytes in 0 blocks
+==16326== Reachable blocks (those to which a pointer was found) are not shown.
+==16326== To see them, rerun with: --leak-check=full --show-reachable=yes
+==16326== 
+==16326== ERROR SUMMARY: 9 errors from 9 contexts (suppressed: 12 from 8)
+--16326-- 
+--16326-- used_suppression:     12 U1004-ARM-_dl_relocate_object
+==16326== 
+==16326== ERROR SUMMARY: 9 errors from 9 contexts (suppressed: 12 from 8)

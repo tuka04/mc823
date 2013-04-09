@@ -1,0 +1,10 @@
+1) Dados: 
+conexao
+	from(ip&port), time
+usuario
+	conexao, user, senha
+visitante
+ 	conexao
+livro: isbn (id), titulo, autores*, descricao, editora,ano de publicacao, num_exemplares (estoque)
+
+
