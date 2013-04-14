@@ -8,6 +8,6 @@ int main(int argc, char *argv[]){
   if(argc==2)
     start_server(argv);
   else
-    start_client(argv);
+    start_client(argc, argv);
   return 0;
 }

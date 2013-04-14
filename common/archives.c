@@ -53,14 +53,6 @@ void readFileBooks(FILE *f, AVL *avl){
       l->estoque=atoi(arr[ESTOQUE]);
       insereAVL(avl,l);
     }
-    /*    freeAutoresList(&autores);
-    free(l->isbn);
-    free(l->titulo);
-    free(l->desc);
-    free(l->ano);
-    free(l->autores);
-    free(l->editora);
-    free(l);*/
   }
 }
 

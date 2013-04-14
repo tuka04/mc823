@@ -8,7 +8,7 @@
 #define TCP_MSG_ACK "ACK\0"
 #define TCP_MSG_COMMAND_NOT_FOUND "*ERRO*: Comando nao reconhecido\n"
 #define TCP_MSG_NUM_NATURAL_REQUIRED "*ERRO*: A entrada deve ser um numero maior que zero\n"
-#define TCP_MSG_SUCESS_EDIT "Campo editado com sucesso!"
+#define TCP_MSG_SUCESS_EDIT "Campo editado com sucesso!\n"
 #define TCP_MSG_LOGIN_REQUIRED "Senha : "
 #define TCP_MSG_ISBN_REQUIRED "ISBN : " 
 #define TCP_MSG_QTD_REQUIRED "Quantidade : " 

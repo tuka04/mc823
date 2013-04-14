@@ -56,27 +56,31 @@ void receive_msg(int conn, AVL *l){
   char msg[TCP_BUF_SIZE];//msg transmit
   int b;//byte received
   bool transmit=true;//continuar a receber msg
+  double ini;
+  struct timeval tvini; //apenas assim para pegar microsegundos
   do{
     b = recv(conn,msg,TCP_BUF_SIZE,0);
+    gettimeofday(&tvini, NULL); 
     msg[b] = '\0';
     if(strlen(msg)>5){
-      send_menu(conn,true);
+      send_menu(conn,true,NULL);
     }
     else if(strcmp(msg,TCP_MSG_ACK)==0 || strcmp(msg,TCP_COMMAND_MENU)==0){
-      send_menu(conn,false);
+      send_menu(conn,false,NULL);
     }
     else if (strcmp(msg,TCP_COMMAND_CLOSE_CONNECTION) == 0){
       send(conn,TCP_MSG_BYE,strlen(TCP_MSG_BYE), 0);
-      //transmit=false;
     }
-    else
-      read_menu(conn,l,msg);
+    else{
+      ini=DOUBLE_MILHAO*(double)(tvini.tv_sec)+(double)(tvini.tv_usec);
+      read_menu(conn,l,msg,ini);
+    }
   }while(transmit);
   close(conn);
 }
 
-void send_menu(int conn,bool alert){
-  char *msg[TAM_MENU];
+void send_menu(int conn,bool alert, TimeVal *tvend){
+   char *msg[TAM_MENU];
   msg[0] = "*** MENU (tecle \\m para visualizar o menu) *********\n\0";
   msg[1] = "*** (1) Listar ISBN                                *\n\0";
   msg[2] = "*** (2) Ver descricacao por ISBN (entrada: ISBN)   *\n\0";
@@ -105,47 +109,65 @@ void send_menu(int conn,bool alert){
     last+=j;
   }
   last=strlen(aux);
+  if(tvend != NULL)
+    gettimeofday(tvend, NULL);
   send(conn,aux,last, 0);//chegara em ordem, tcp
 }
 
-bool read_menu(int conn, AVL *l, char opt[]){
+bool read_menu(int conn, AVL *l, char opt[], double ini){
+  double end; 
+  struct timeval tvend; //apenas assim para pegar microsegundos?
   int i=0;
   for(i=0;i<strlen(opt);i++){
     if(strcmp(opt,TCP_MSG_ACK)==0)
       return false;
     if(!isdigit(opt[i])){
-      send_menu(conn,true);
+      send_menu(conn,true,NULL);
       return false;
     }
   }
   i=atoi(opt);
   switch(i){
   case 1:
-    send_all_ids(conn,l);
+    send_all_ids(conn,l,&tvend);
+    end=DOUBLE_MILHAO*(double)(tvend.tv_sec)+(double)(tvend.tv_usec);
+    writeDoubleToFile("./estat/tp_1","a+",end-ini);
     return true;
   case 2:
-    send_desc_byId(conn,l);
+    send_desc_byId(conn,l,&tvend);
+    end=DOUBLE_MILHAO*(double)(tvend.tv_sec)+(double)(tvend.tv_usec);
+    writeDoubleToFile("./estat/tp_2","a+",end-ini);
     return true;
   case 3:
-    send_book_info(conn,l);
+    send_book_info(conn,l,&tvend);
+    end=DOUBLE_MILHAO*(double)(tvend.tv_sec)+(double)(tvend.tv_usec);
+    writeDoubleToFile("./estat/tp_3","a+",end-ini);
     return true;
   case 4:
-    send_all_books_info(conn,l);
+    send_all_books_info(conn,l,&tvend);
+    end=DOUBLE_MILHAO*(double)(tvend.tv_sec)+(double)(tvend.tv_usec);
+    writeDoubleToFile("./estat/tp_4","a+",end-ini);
     return true;
   case 5:
-    edit_estoque(conn,l);
+    edit_estoque(conn,l,&tvend);
+    end=DOUBLE_MILHAO*(double)(tvend.tv_sec)+(double)(tvend.tv_usec);
+    writeDoubleToFile("./estat/tp_5","a+",end-ini);
     return true;
   case 6:
-    send_estoque_byId(conn,l);
+    send_estoque_byId(conn,l,&tvend);
+    end=DOUBLE_MILHAO*(double)(tvend.tv_sec)+(double)(tvend.tv_usec);
+    writeDoubleToFile("./estat/tp_6","a+",end-ini);
     return true;
   default:
-    send_menu(conn,true);
+    send_menu(conn,true,&tvend);
+    end=DOUBLE_MILHAO*(double)(tvend.tv_sec)+(double)(tvend.tv_usec);
+    writeDoubleToFile("./estat/tp_menu","a+",end-ini);
     return false;
   }
   return true;
 }
 
-void send_all_ids(int conn, AVL *l){
+void send_all_ids(int conn, AVL *l, TimeVal *tvend){
   int len=totISBNchar(*l);
   int tot=totElemAVL(*l);
   char *del="\n ISBN: ";
@@ -153,11 +175,12 @@ void send_all_ids(int conn, AVL *l){
   memset(ids,'\0',len+tot*strlen(del)+2);
   avlIdToStr(*l,&ids,del);
   strcat(ids,"\n");
+  gettimeofday(tvend,NULL);
   send(conn,ids,strlen(ids),0);
   free(ids);
 }
 
-void send_desc_byId(int conn, AVL *l){
+void send_desc_byId(int conn, AVL *l, TimeVal *tvend){
   char msg[TCP_BUF_SIZE];//msg transmit
   send(conn,TCP_MSG_ISBN_REQUIRED,strlen(TCP_MSG_ISBN_REQUIRED),0);
   int b=recv(conn,msg,TCP_BUF_SIZE,0);//isbn?
@@ -168,15 +191,17 @@ void send_desc_byId(int conn, AVL *l){
     char str[strlen(temp->desc)+4];
     memset(str,'\0',strlen(temp->desc)+4);
     strcat(str,temp->desc);
-    strcat(str,"\n");
+    strcat(str,"\n"); 
+    gettimeofday(tvend,NULL);
     send(conn,str,strlen(str),0);
   } 
   else{
+    gettimeofday(tvend,NULL);
     send(conn,BOOK_NOT_FOUND,strlen(BOOK_NOT_FOUND),0);
   }
 }
 
-void send_book_info(int conn, AVL *l){
+void send_book_info(int conn, AVL *l, TimeVal *tvend){
   char msg[TCP_BUF_SIZE];//msg transmit
   send(conn,TCP_MSG_ISBN_REQUIRED,strlen(TCP_MSG_ISBN_REQUIRED),0);
   int b=recv(conn,msg,TCP_BUF_SIZE,0);//isbn?
@@ -185,14 +210,16 @@ void send_book_info(int conn, AVL *l){
   if(livro!=NULL){
     Livro *temp=(Livro *)livro->dado;
     char *str = bookNodeToStr(temp);
+    gettimeofday(tvend,NULL);
     send(conn,str,strlen(str),0);
   } 
   else{
+    gettimeofday(tvend,NULL);
     send(conn,BOOK_NOT_FOUND,strlen(BOOK_NOT_FOUND),0);
   }
 }
 
-void send_all_books_info(int conn, AVL *l){
+void send_all_books_info(int conn, AVL *l, TimeVal *tvend){
   int len=totAVLchar(*l);
   int tot=totElemAVL(*l);
   int bsize=getBookNodeSize();
@@ -202,11 +229,12 @@ void send_all_books_info(int conn, AVL *l){
   memset(allin,'\0',lentot);
   avlToStr(*l,&allin,del);
   strcat(allin,"\n");
+  gettimeofday(tvend,NULL);
   send(conn,allin,lentot,0);
   free(allin);
 }
 
-void edit_estoque(int conn, AVL *l){
+void edit_estoque(int conn, AVL *l, TimeVal *tvend){
   char msg[TCP_BUF_SIZE];//msg transmit
   send(conn,TCP_MSG_ISBN_REQUIRED,strlen(TCP_MSG_ISBN_REQUIRED),0);
   int b=recv(conn,msg,TCP_BUF_SIZE,0);//isbn?
@@ -224,21 +252,27 @@ void edit_estoque(int conn, AVL *l){
       if(q>=0){
 	Livro *aux = (Livro *)livro->dado;
 	aux->estoque=q;
+	livro->dado = (void *)aux;
+	gettimeofday(tvend,NULL);
 	send(conn,TCP_MSG_SUCESS_EDIT,strlen(TCP_MSG_SUCESS_EDIT),0);
       }
-      else
+      else{
+	gettimeofday(tvend,NULL);
 	send(conn,TCP_MSG_NUM_NATURAL_REQUIRED,strlen(TCP_MSG_NUM_NATURAL_REQUIRED),0);
+      }
     }
     else{
+      gettimeofday(tvend,NULL);
       send(conn,MSG_SENHA_INVALIDA,strlen(MSG_SENHA_INVALIDA),0);
     }
   } 
   else{
+    gettimeofday(tvend,NULL);
     send(conn,BOOK_NOT_FOUND,strlen(BOOK_NOT_FOUND),0);
   }    
 }
 
-void send_estoque_byId(int conn, AVL *l){
+void send_estoque_byId(int conn, AVL *l, TimeVal *tvend){
   char msg[TCP_BUF_SIZE];//msg transmit
   send(conn,TCP_MSG_ISBN_REQUIRED,strlen(TCP_MSG_ISBN_REQUIRED),0);
   int b=recv(conn,msg,TCP_BUF_SIZE,0);//isbn?
@@ -246,9 +280,11 @@ void send_estoque_byId(int conn, AVL *l){
   AVL_NO *livro=getAVLElemById(*l,msg);
   if(livro!=NULL){
     Livro *aux = (Livro *)livro->dado;
+    gettimeofday(tvend,NULL);
     send(conn,my_itoa(aux->estoque,10),strlen(my_itoa(aux->estoque,10)),0);
   } 
   else{
+    gettimeofday(tvend,NULL);
     send(conn,BOOK_NOT_FOUND,strlen(BOOK_NOT_FOUND),0);
   }
 }

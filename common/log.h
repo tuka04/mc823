@@ -14,5 +14,11 @@
  * @param char *msg
  **/
 void writeLog(char *title, char *msg, char *extra);
-
+/**
+ * Escreve um double em um determinado arquivo
+ * @param char *file : caminho do arquivo
+ * @param char *mode : modo de abertura do arquivo (a+,r+,r,w..)
+ * @param double num : numero a ser escrito
+ **/
+void writeDoubleToFile(char *file,char *mode,double num);
 #endif

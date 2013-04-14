@@ -6,6 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <signal.h> 
+#include <sys/time.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -13,6 +14,8 @@
 #include "../common/error.h"
 #include "../common/log.h"
 #include "../common/tcp.h"
+#include "../common/archives.h"
+#include "../server/login.h"
 
 /**
  * Funcao que realiza a conexao
@@ -33,4 +36,14 @@ int conn(struct in_addr addr, int port);
  * @param int sDesc : descriptor de uma conexao socket
  **/
 void send_msg(int sDesc,struct in_addr addr, int port);
+/**
+ * Roda um teste juntamente ao server
+ **/
+void build_teste(int sDesc,struct in_addr addr, int port);
+/**
+ * Gera um vetor com opcoes(int) para o teste.
+ * @return int *msg;
+ **/
+int *getTesteMsg();
+
 #endif

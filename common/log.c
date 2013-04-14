@@ -11,3 +11,14 @@ void writeLog(char *title, char *msg, char *extra){
   fprintf(f,"%s (%s): %s %s\n",title,ctime(&timer),msg,extra);
   fclose(f);
 }
+
+void writeDoubleToFile(char *file,char *mode,double num){
+  FILE *f=NULL;
+  f=fopen(file,mode);
+  if(f==NULL){
+    printError(ERROR_LOG_FILE);
+    exit(1);
+  }
+  fprintf(f,"%lf\n",num);
+  fclose(f);
+}

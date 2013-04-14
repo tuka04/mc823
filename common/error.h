@@ -23,6 +23,7 @@ enum ERROR {
   ERROR_SOCKET_SERVER_ACCEPT,
   ERROR_LOG_FILE,
   ERROR_USAGE_MAIN,
+  ERROR_USAGE_TEST,
   ERROR_FILE_OPEN,
   ERROR_NUM_COLUNAS_BOOKS
 };
@@ -33,19 +34,4 @@ enum ERROR {
  **/
 void printError(int e);
 
-/**
- * Escreve em um arquivo de log. Os parametros sao o titulo e mensagem a ser
- * escriva. Formato de escrita eh: title (time): msg
- * @param char *title
- * @param char *msg
- **/
-void writeLog(char *title, char *msg, char *extra);
-
-/**
- * Convert inteiro na base escolhida para string
- * @param int val
- * @param int base
- * @see http://www.jb.man.ac.uk/~slowe/cpp/itoa.html
- **/
-char* my_itoa(int val, int base);
 #endif

@@ -23,6 +23,6 @@ typedef struct client_ipv6 {
  * funcao que inicia uma conexao, e mantem aberta, com um servidor
  * @param char *argv[]
  **/
-void start_client(char *argv[]);
+void start_client(int argc, char *argv[]);
 
 #endif

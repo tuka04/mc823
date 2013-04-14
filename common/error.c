@@ -32,6 +32,9 @@ void printError(int e){
   case ERROR_USAGE_MAIN:
     printf("erro de entrada: tente ./main <num_porta> (para iniciar servidor) ou ./main <endereco_ip> <porta> para iniciar o cliente\n");
     break;
+  case ERROR_USAGE_TEST:
+    printf("erro de entrada: tente ./test <endereco_ip> <porta> para iniciar o cliente (o servidor deve estar up!)\n");
+    break;
   case ERROR_FILE_OPEN:
     perror("archives:: Erro ao abrir arquivo\n");
     break;
@@ -40,21 +43,4 @@ void printError(int e){
     break;
   }
 }
-/*char* my_itoa(int val, int base){	
-  static char buf[32] = {0};
-  int i = 30;
-  for(; val && i ; --i, val /= base)
-    buf[i] = "0123456789abcdef"[val % base];
-  return &buf[i+1];
-  }*/
-void writeLog(char *title, char *msg, char *extra){
-  FILE *f;
-  const time_t timer = time(NULL);
-  f = fopen(LOG_FILE,"a+");
-  if(f==NULL){
-    printError(ERROR_LOG_FILE);
-    exit(1);
-  }
-  fprintf(f,"%s (%s): %s %s\n",title,ctime(&timer),msg,extra);
-  fclose(f);
-}
+

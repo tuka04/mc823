@@ -6,6 +6,11 @@
 #include <stdbool.h>
 
 #define CHAR_NEW_LINE "\n"
+#define DOUBLE_MILHAO 1000000.00
+#define NUM_OPCOES_MENU 6
+#define NUM_TESTES 100
+#define OPT_TESTE "-t"
+
 /**
  * Convert inteiro na base escolhida para string
  * @param int val

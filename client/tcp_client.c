@@ -76,3 +76,98 @@ void send_msg(int sDesc,struct in_addr addr, int port){
     }
   }while(transmit);
 }
+
+void build_teste(int sDesc,struct in_addr addr, int port){
+  char msgMaxTCPBuffSize[10];
+  memset(msgMaxTCPBuffSize,'\0',10);
+  int max = recv(sDesc,msgMaxTCPBuffSize,10,0);//-1 error, 0 closed
+  if(max<0){
+    printError((max==-1)?ERROR_SOCKET_SERVER_ERROR:ERROR_SOCKET_SERVER_CLOSED);
+    close(sDesc);
+    exit(1);
+  }
+  msgMaxTCPBuffSize[max]='\0';
+  send(sDesc,TCP_MSG_ACK,strlen(TCP_MSG_ACK),0);//send message
+  int tcpBuffSize=atoi(msgMaxTCPBuffSize);
+  char recvMsg[tcpBuffSize];//received msg
+  struct timeval tvini, tvend;
+  double ini=00.00,end=00.00;
+  int *msgT=getTesteMsg();
+  char testes[7][18];
+  strcpy(testes[0],"./estat/tt_menu\0");
+  strcpy(testes[1],"./estat/tt_1\0");
+  strcpy(testes[2],"./estat/tt_2\0");
+  strcpy(testes[3],"./estat/tt_3\0");
+  strcpy(testes[4],"./estat/tt_4\0");
+  strcpy(testes[5],"./estat/tt_5\0");
+  strcpy(testes[6],"./estat/tt_6\0");
+  char isbn[14][10];
+  strcpy(isbn[0],"978853526-0");
+  strcpy(isbn[1],"978052007-4");
+  strcpy(isbn[2],"857302773-8");
+  strcpy(isbn[3],"850109104-9");
+  strcpy(isbn[4],"843760494-X");
+  strcpy(isbn[5],"207036002-4");
+  strcpy(isbn[6],"081297215-5");
+  strcpy(isbn[7],"850197213-4");//errado
+  strcpy(isbn[8],"978858041-1");
+  strcpy(isbn[9],"978857679-9");
+  strcpy(isbn[10],"978857608-5");
+  strcpy(isbn[11],"978853990-1");
+  strcpy(isbn[12],"978857521-2");
+  strcpy(isbn[13],"978850220-0");
+  int i=0,random=0;
+  bool noRcv=true;
+  max = recv(sDesc,recvMsg,tcpBuffSize,0);//menu
+  for(i=0;i<NUM_TESTES*NUM_OPCOES_MENU;i++){
+    gettimeofday(&tvini, NULL);//marca envio
+    max = send(sDesc,my_itoa(msgT[i],10),strlen(my_itoa(msgT[i],10)),0);
+    if(msgT[i]==2 || msgT[i]==3 || msgT[i]==5 || msgT[i]==6){//precisa de isbn
+      max = recv(sDesc,recvMsg,tcpBuffSize,0);
+      recvMsg[max]='\0';
+      if(strcmp(recvMsg,TCP_MSG_ISBN_REQUIRED)==0){//caso receba req. isbn
+	random=rand()%13;
+	max = send(sDesc,isbn[random],strlen(isbn[random]),0);
+	if(msgT[i]==5){//precisa de senha && qntidade
+	  max = recv(sDesc,recvMsg,tcpBuffSize,0);
+	  recvMsg[max]='\0';
+	  if(strcmp(recvMsg,TCP_MSG_LOGIN_REQUIRED)==0){//caso receba req. login
+	    max = send(sDesc,SENHA,strlen(SENHA),0);
+	    max = recv(sDesc,recvMsg,tcpBuffSize,0);
+	    recvMsg[max]='\0';
+	    if(strcmp(recvMsg,TCP_MSG_QTD_REQUIRED)==0){//qntidade
+	      random=rand()%1000;
+	      max = send(sDesc,my_itoa(random,10),strlen(my_itoa(random,10)),0); 
+	    }//qntd
+	    else
+	      noRcv=false;
+	  }//login
+	  else
+	    noRcv=false;
+	}
+      }//isbn
+      else
+	noRcv=false;
+    }
+    if(noRcv)
+      max = recv(sDesc,recvMsg,tcpBuffSize,0);//opcao
+    noRcv=true;
+    recvMsg[max]='\0';
+    printf("%s",recvMsg);
+    gettimeofday(&tvend, NULL);//marca recebimento
+    ini=DOUBLE_MILHAO*(double)(tvini.tv_sec)+(double)(tvini.tv_usec);
+    end=DOUBLE_MILHAO*(double)(tvend.tv_sec)+(double)(tvend.tv_usec);
+    writeDoubleToFile(testes[msgT[i]],"a+",end-ini);
+  }
+}
+int *getTesteMsg(){
+  int *msg=(int *)malloc(sizeof(int)*NUM_OPCOES_MENU*NUM_TESTES);
+  int i=0,j=0,c=0;
+  for(i=0;i<NUM_TESTES;i++){
+    for(j=0;j<NUM_OPCOES_MENU;j++){
+      *(msg+c)=j+1;
+      c++;
+    }
+  }
+  return msg;
+}
