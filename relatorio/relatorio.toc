@@ -1,9 +1,9 @@
 \select@language {brazil}
 \contentsline {section}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{1}{section.1}
 \contentsline {section}{\numberline {2}Desenvolvimento}{1}{section.2}
-\contentsline {subsection}{\numberline {2.1}Protocolo TCP - Transmission Control Protocol}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.1}Protocolo TCP - Transmission Control Protocol}{2}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Implementa\IeC {\c c}\IeC {\~a}o}{2}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}Manipula\IeC {\c c}\IeC {\~a}o de dados}{2}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.1}Manipula\IeC {\c c}\IeC {\~a}o de dados}{3}{subsubsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2}Conex\IeC {\~a}o Servidor/Cliente}{3}{subsubsection.2.2.2}
 \contentsline {subsection}{\numberline {2.3}Coleta e ger\IeC {\^e}ncia de dados para testes}{3}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Vantagens da implementa\IeC {\c c}\IeC {\~a}o}{3}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.4}Vantagens da implementa\IeC {\c c}\IeC {\~a}o}{4}{subsection.2.4}
