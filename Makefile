@@ -7,6 +7,8 @@ OBJS	= main.o common/common.o common/error.o common/archives.o common/log.o
 OBJS_TESTE = common/tempo.o common/archives.o
 OBJLIBS	= libcommon.a libserver.a libclient.a
 LIBS	= -L. -lm -lcommon -lserver -lclient
+PORTA = 2929
+DDOT = :
 
 all : $(BIN) $(BIN_TESTE)
 
@@ -46,4 +48,12 @@ test :
 	-for i in 1 2 3 4 5 6; do ( $(ECHO) "Menu: $$i" && cat estat/mtp_$$i ); done
 	$(ECHO) "****** Tempo Total *****************"
 	-for i in 1 2 3 4 5 6; do ( $(ECHO) "Menu: $$i" && cat estat/mtt_$$i ); done
+start_server : 
+	$(ECHO) "Iniciando servidor: porta " $(PORTA)
+	./main $(PORTA)
+	$(ECHO) "Servidor iniciado! Aguardando clientes na porta: " $(PORTA)
 
+start_client :
+	$(ECHO) "Iniciando cliente: " $(IP) $(DDOT) $(PORTA)	
+	./main $(IP) $(PORTA)
+	$(ECHO) "Conexao finalizada " $(IP) $(DDOT) $(PORTA)	

@@ -1,0 +1,56 @@
+%*************************************************
+
+\documentclass[a4paper,10pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+\usepackage{amsthm,amsfonts}
+\usepackage{makeidx}
+%titulo
+\title{Servidor Concorrente TCP}
+\author{Leandro Kümmel Tria Mendes RA033910 \\ Fernando Teixeira RA??????}
+\makeindex
+%inicio
+\begin{document}
+\maketitle
+\tableofcontents
+\listoffigures
+\listoftables
+\section{Introdução}
+O objetivo desse projeto é implementar um sistema cliente/servidor
+concorrente, com operações para o gerenciamento de livros em uma livraria.
+Na comunicação entre cliente e servidor utilizou-se o protocolo TCP\footnote{
+Mais informações sobre TCP http://www.linktionary.com/t/tcp.html}, da camada de transporte, e a partir da execução de testes podemos avaliar alguns aspectos
+desse protocolo e posteriormente compará-lo com outro(s).
+\section{Desenvolvimento}
+Linux foi o sistema operacional utilizado para o desenvolvimento (distribuição
+2.6.43.8-1.fc15.i686). Igualmente, para os testes utilizou-se duas máquinas com linux, porém com distribuições diferentes.
+\subsection{Protocolo TCP - Transmission Control Protocol}
+O protocolo TCP foi escrito de modo a garantir que os dados enviados (pelo
+servido) e recebidos (pelo cliente) de forma correta, na sequência 
+adequada e sem erros, pela rede.
+\\As características fundamentais do TCP são:
+\begin{itemize}
+\item \emph{Orientado à conexão} : necessidade de uma conexão.
+\item \emph{Ponto a ponto} : conexão é estabelecida entre dois pontos.
+\item \emph{Confiabilidade} : Permite a recuperação de arquivos perdidos, elimina 
+arquivos duplicados, recupera dados corrompidos, entrega na ordem do envio e 
+pode recuperar o \"link\" entre cliente e servidor, caso esse, por algum motivo,
+seja perdido.
+\item \emph{Full duplex} : Possível transferência simultânea, entre cliente e 
+servidor
+\item \emph{Handshake} : Mecanismo de estabelecimento e finalização de conexão.
+O TCP garante que, no final da conexão, \textbf{todos} os pacotes sejam entregues
+/recebidos
+\item \emph{Entrega ordenada} : A aplicação entrega ao TCP bloco de dados de 
+tamanho variável. Esse protocolo divide estes dados em segmentos de tamanho 
+especificado (valor MTU). Sabe-se que camadas inferiores a de transporte podem 
+fazer com que os pacotes não cheguem na ordem em que foram enviados. Porém, o TCP
+garante a reconstrução dos segmentos no cliente (TCP utiliza um número de 
+sequência)
+\item \emph{Controle de fluxo} : O protocolo em estudo utiliza-se de um campos 
+denominado janela para controlar o fluxo
+\end{itemize}
+\subsection{Implementação}
+\subsubsection{Manipulação de dados (pasta common)}
+\end{document}

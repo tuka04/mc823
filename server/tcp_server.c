@@ -88,8 +88,8 @@ void send_menu(int conn,bool alert, TimeVal *tvend){
   msg[4] = "*** (4) Ver info. completa (todos os livros)       *\n\0";
   msg[5] = "*** (5) Alterar estoque (apenas adm)               *\n\0";
   msg[6] = "*** (6) Ver quantidade em estoque (entrada: ISBN)  *\n\0";
-  msg[6] = "*** (\\q) Fechar conexao e sair                     *\n\0";
-  msg[7] = "****************************************************\n\0";
+  msg[7] = "*** (\\q) Fechar conexao e sair                     *\n\0";
+  msg[8] = "****************************************************\n\0";
   int i=0,j=0;
   int last=0,tam=0;
   for(i=0;i<TAM_MENU;i++)

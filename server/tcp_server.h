@@ -16,7 +16,7 @@
 #include "../common/avl.h"
 #include "../common/common.h"
 #include "login.h"
-#define TAM_MENU 8
+#define TAM_MENU 9
 
 typedef struct timeval TimeVal;
 /**
