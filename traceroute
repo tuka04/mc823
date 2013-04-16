@@ -1,0 +1,18 @@
+traceroute to 64.90.43.176 (64.90.43.176), 30 hops max, 60 byte packets
+ 1  192.168.1.1 (192.168.1.1)  1.451 ms  3.738 ms  3.704 ms
+ 2  bb6a2801.virtua.com.br (187.106.40.1)  13.619 ms  13.601 ms  15.943 ms
+ 3  c952005e.virtua.com.br (201.82.0.94)  22.664 ms  22.658 ms  22.622 ms
+ 4  embratel-T0-4-0-0-uacc01.cas.embratel.net.br (200.213.139.1)  18.594 ms  18.566 ms  18.530 ms
+ 5  ebt-T0-8-0-1-tcore01.cas.embratel.net.br (200.230.162.26)  22.404 ms ebt-T0-8-0-3-tcore02.cas.embratel.net.br (200.230.162.54)  18.457 ms ebt-T0-8-0-2-tcore02.cas.embratel.net.br (200.230.162.50)  18.390 ms
+ 6  ebt-Bundle-POS11932-intl03.mianap.embratel.net.br (200.230.220.54)  130.456 ms ebt-Bundle-POS11931-intl03.mianap.embratel.net.br (200.230.220.2)  857.334 ms ebt-Bundle-POS11932-intl03.mianap.embratel.net.br (200.230.220.54)  140.684 ms
+ 7  ae99.edge4.Miami1.Level3.net (4.59.90.9)  138.230 ms  140.338 ms  137.952 ms
+ 8  ae-1-51.edge2.Miami2.Level3.net (4.69.138.77)  140.140 ms  125.979 ms  125.869 ms
+ 9  ge-2-0-0.mpr1.mia1.us.above.net (64.125.14.89)  125.741 ms  125.585 ms  125.511 ms
+10  ge-1-0-0.mpr2.mia1.us.above.net (64.125.30.194)  126.715 ms  126.589 ms  126.420 ms
+11  xe-4-0-0.cr2.iah1.us.above.net (64.125.30.202)  168.925 ms  185.389 ms  172.787 ms
+12  xe-2-0-0.cr2.lax112.us.above.net (64.125.25.18)  185.300 ms  185.909 ms  185.745 ms
+13  xe-3-1-0.mpr1.lax12.us.above.net (64.125.21.109)  185.634 ms  209.681 ms  209.593 ms
+14  xe-0-1-0.mpr1.lax103.us.above.net (64.125.30.45)  209.485 ms  209.334 ms  209.263 ms
+15  64.125.187.174.t00867-02.above.net (64.125.187.174)  208.607 ms  208.452 ms  208.349 ms
+16  ip-66-33-201-126.dreamhost.com (66.33.201.126)  199.598 ms  188.714 ms  188.595 ms
+17  ps59582.dreamhost.com (64.90.43.176)  185.345 ms  182.570 ms  184.841 ms

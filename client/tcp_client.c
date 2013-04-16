@@ -38,18 +38,35 @@ void send_msg(int sDesc,struct in_addr addr, int port){
   send(sDesc,TCP_MSG_ACK,strlen(TCP_MSG_ACK),0);//send message
   int tcpBuffSize=atoi(msgMaxTCPBuffSize);
   char msg[TCP_BUF_SIZE];//msg a ser transmitida
+  memset(msg,'\0',TCP_BUF_SIZE);
   char recvMsg[tcpBuffSize];//received msg
   bool transmit=true;//var de saida
   printf("Para sair tecle %s\n",TCP_COMMAND_CLOSE_CONNECTION);
+  int rc=0;
   do{
-    max = recv(sDesc,recvMsg,tcpBuffSize,0);//-1 error, 0 closed
-    if(max<0){
-      printError((max==-1)?ERROR_SOCKET_SERVER_ERROR:ERROR_SOCKET_SERVER_CLOSED);
-      close(sDesc);
-      exit(1);
+    if(strcmp(msg,"4")==0){
+      do{
+	max = recv(sDesc,(void *)recvMsg,tcpBuffSize,0);//-1 error, 0 closed
+	if(max<0){
+	  printError((max==-1)?ERROR_SOCKET_SERVER_ERROR:ERROR_SOCKET_SERVER_CLOSED);
+	  close(sDesc);
+	  exit(1);
+	}
+	recvMsg[max]='\0';
+	printf("%s",recvMsg);
+	if(rc<tcpBuffSize)
+	  send(sDesc,TCP_MSG_ACK,strlen(TCP_MSG_ACK),0);//send message     
+	rc+=max;
+      }while(rc<tcpBuffSize);
     }
-    recvMsg[max]='\0';
-    printf("%s",recvMsg);
+    else{
+      if(strlen(msg)==0)
+	send(sDesc,TCP_COMMAND_MENU,strlen(TCP_COMMAND_MENU),0);
+      max = recv(sDesc,(void *)recvMsg,tcpBuffSize,0);//-1 error, 0 closed
+      recvMsg[max]='\0';
+      printf("%s",recvMsg);
+    }
+    rc=0;
     if(strcmp(TCP_COMMAND_CLOSE_CONNECTION,msg)==0){//saida?
       transmit=false;//nao transmitir mais
     }
@@ -87,7 +104,7 @@ void build_teste(int sDesc,struct in_addr addr, int port){
     exit(1);
   }
   msgMaxTCPBuffSize[max]='\0';
-  send(sDesc,TCP_MSG_ACK,strlen(TCP_MSG_ACK),0);//send message
+  send(sDesc,TCP_COMMAND_MENU,strlen(TCP_COMMAND_MENU),0);//send message
   int tcpBuffSize=atoi(msgMaxTCPBuffSize);
   char recvMsg[tcpBuffSize];//received msg
   struct timeval tvini, tvend;
@@ -101,59 +118,86 @@ void build_teste(int sDesc,struct in_addr addr, int port){
   strcpy(testes[4],"./estat/tt_4\0");
   strcpy(testes[5],"./estat/tt_5\0");
   strcpy(testes[6],"./estat/tt_6\0");
-  char isbn[14][10];
-  strcpy(isbn[0],"978853526-0");
-  strcpy(isbn[1],"978052007-4");
-  strcpy(isbn[2],"857302773-8");
-  strcpy(isbn[3],"850109104-9");
-  strcpy(isbn[4],"843760494-X");
-  strcpy(isbn[5],"207036002-4");
-  strcpy(isbn[6],"081297215-5");
-  strcpy(isbn[7],"850197213-4");//errado
-  strcpy(isbn[8],"978858041-1");
-  strcpy(isbn[9],"978857679-9");
-  strcpy(isbn[10],"978857608-5");
-  strcpy(isbn[11],"978853990-1");
-  strcpy(isbn[12],"978857521-2");
-  strcpy(isbn[13],"978850220-0");
+  char isbn[14][13];
+  strcpy(isbn[0],"978853526-0\0");
+  strcpy(isbn[1],"978052007-4\0");
+  strcpy(isbn[2],"857302773-8\0");
+  strcpy(isbn[3],"850109104-9\0");
+  strcpy(isbn[4],"843760494-X\0");
+  strcpy(isbn[5],"207036002-4\0");
+  strcpy(isbn[6],"081297215-5\0");
+  strcpy(isbn[7],"978858041-1\0");//errado
+  //  strcpy(isbn[7],"850197213-4");//errado
+  strcpy(isbn[8],"978858041-1\0");
+  strcpy(isbn[9],"978857679-9\0");
+  strcpy(isbn[10],"978857608-5\0");
+  strcpy(isbn[11],"978853990-1\0");
+  strcpy(isbn[12],"978857521-2\0");
+  strcpy(isbn[13],"978850220-0\0");
   int i=0,random=0;
-  bool noRcv=true;
+  int rc=0;
   max = recv(sDesc,recvMsg,tcpBuffSize,0);//menu
+  recvMsg[max]='\0';
+  printf("%s",recvMsg);
   for(i=0;i<NUM_TESTES*NUM_OPCOES_MENU;i++){
+    rc=0;
     gettimeofday(&tvini, NULL);//marca envio
+    printf("%d",msgT[i]);
     max = send(sDesc,my_itoa(msgT[i],10),strlen(my_itoa(msgT[i],10)),0);
     if(msgT[i]==2 || msgT[i]==3 || msgT[i]==5 || msgT[i]==6){//precisa de isbn
       max = recv(sDesc,recvMsg,tcpBuffSize,0);
       recvMsg[max]='\0';
+      printf("%s",recvMsg);
       if(strcmp(recvMsg,TCP_MSG_ISBN_REQUIRED)==0){//caso receba req. isbn
 	random=rand()%13;
 	max = send(sDesc,isbn[random],strlen(isbn[random]),0);
+	printf(" SEND %s+ ",isbn[random]);
 	if(msgT[i]==5){//precisa de senha && qntidade
 	  max = recv(sDesc,recvMsg,tcpBuffSize,0);
 	  recvMsg[max]='\0';
+	  printf("%s",recvMsg);
 	  if(strcmp(recvMsg,TCP_MSG_LOGIN_REQUIRED)==0){//caso receba req. login
 	    max = send(sDesc,SENHA,strlen(SENHA),0);
+	    printf(" SEND %s+ ",SENHA);
 	    max = recv(sDesc,recvMsg,tcpBuffSize,0);
 	    recvMsg[max]='\0';
+	    printf("%s",recvMsg);
 	    if(strcmp(recvMsg,TCP_MSG_QTD_REQUIRED)==0){//qntidade
 	      random=rand()%1000;
 	      max = send(sDesc,my_itoa(random,10),strlen(my_itoa(random,10)),0); 
+	      printf(" SEND %s+ ",my_itoa(random,10));
+	      max = recv(sDesc,recvMsg,tcpBuffSize,0);//opcao
+	      recvMsg[max]='\0';
 	    }//qntd
-	    else
-	      noRcv=false;
-	  }//login
-	  else
-	    noRcv=false;
+	  }//ogin
+	}
+	else{
+	  max = recv(sDesc,recvMsg,tcpBuffSize,0);//opcao
+	  recvMsg[max]='\0';
 	}
       }//isbn
-      else
-	noRcv=false;
+      printf("@%s@",recvMsg);
     }
-    if(noRcv)
-      max = recv(sDesc,recvMsg,tcpBuffSize,0);//opcao
-    noRcv=true;
-    recvMsg[max]='\0';
-    printf("%s",recvMsg);
+    else if(msgT[i]==4){
+      do{
+	max = recv(sDesc,(void *)recvMsg,tcpBuffSize,0);//-1 error, 0 closed
+	if(max<0){
+	  printError((max==-1)?ERROR_SOCKET_SERVER_ERROR:ERROR_SOCKET_SERVER_CLOSED);
+	    close(sDesc);
+	    exit(1);
+	}
+	recvMsg[max]='\0';
+	printf("@%s@",recvMsg);
+	if(rc==0)
+	  send(sDesc,TCP_MSG_ACK,strlen(TCP_MSG_ACK),0);//send message     
+	rc+=max;
+      }while(rc<tcpBuffSize);
+      }
+    else{
+      max = recv(sDesc,(void *)recvMsg,tcpBuffSize,0);//-1 error, 0 closed
+      recvMsg[max]='\0';
+      printf("@%s@",recvMsg);
+    }
     gettimeofday(&tvend, NULL);//marca recebimento
     ini=DOUBLE_MILHAO*(double)(tvini.tv_sec)+(double)(tvini.tv_usec);
     end=DOUBLE_MILHAO*(double)(tvend.tv_sec)+(double)(tvend.tv_usec);

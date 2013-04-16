@@ -83,7 +83,7 @@ escolhidas pelo cliente e interface para as respostas do sistema de livraria
 \item \label{itm:relatorio} \emph{relatorio}
 \end{enumerate}
 \subsubsection{Manipulação de dados}
-Arquivos presentes no diretório \emph{common}[\ref{itm:common}]:
+Todas as estruturas utilizadas para leitura/escrita dos livros são dinâmicas. \\Arquivos presentes no diretório \emph{common}[\ref{itm:common}]:
 \begin{enumerate}[I.]
 \item \emph{error.c error.h}: Gerencia erros que eventualmente podem ocorrer.
 \item \emph{common.c common.h}: Funções de uso comum.
@@ -102,7 +102,7 @@ Compreende dois diretórios \emph{server}[\ref{itm:server}] e \emph{client}[\ref
 \\\textbf{Servidor}:
 \begin{enumerate}[I.]
 \item \emph{server.c server.h}: Apenas inicia o servidor dada um número de uma porta.
-\item \label{itm:tcpserver} \emph{tcp\_server.c tcp\_server.h}: Gerencia tanto as conexões com os clientes quanto a comunicação, em outras palavras, o tcp\_server.c recebe uma mensagem do tcp\_client.c[\ref{itm:tcpclient}] e envia uma resposta adequada ao mesmo.
+\item \label{itm:tcpserver} \emph{tcp\_server.c tcp\_server.h}: Gerencia tanto as conexões com os clientes quanto a comunicação, em outras palavras, o tcp\_server.c recebe um stream do tcp\_client.c[\ref{itm:tcpclient}] e envia uma resposta adequada ao mesmo.
 \item \emph{login.c login.h}: Gerencia o login necessário para editar a quantidade de um livro.
 \end{enumerate}
 \textbf{Cliente}:
@@ -121,7 +121,7 @@ performance em questão de tempo de processamento, uma vez que, essa estrutura
 mostrou-se eficaz para o problema e tem possuí melhor complexidade de tempo com 
 relação a outras estruturas, além de ser de a implementação e manuntenção serem
 simples.
-\\ Com relação as conexões e comunicações entre cliente/servidor, vale ressaltar que há uma troca de mensagens inicial entre os dois, na qual o conteúdo da mensagem
+\\ Com relação as conexões e comunicações entre cliente/servidor, vale ressaltar que há uma troca de mensagens\footnote{Sabe-se que o TCP envia/recebe streams} inicial entre os dois, na qual o conteúdo do stream
 é o número de bytes da maior mensagem possível a ser enviada pelo servidor.
 \begin{figure}[!htb]
   \centering

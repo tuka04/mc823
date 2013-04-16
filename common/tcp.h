@@ -14,5 +14,8 @@
 #define TCP_MSG_QTD_REQUIRED "Quantidade : " 
 #define TCP_COMMAND_CLOSE_CONNECTION "\\q"
 #define TCP_COMMAND_MENU "\\m"
+#define TCP_MSG_MENU_REQUEST ":"
 
+#define TAM_CAMPO_MSG 10
+#define DEL_CAMPO_MSG "$"
 #endif

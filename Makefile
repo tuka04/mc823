@@ -41,7 +41,7 @@ force_look :
 	true
 test :
 	$(ECHO) "Executando teste...aguarde"	
-	./main 127.0.0.1 2929 -t > output
+	./main $(IP) $(PORTA) -t > output
 	$(ECHO) "Executando media"
 	./media
 	$(ECHO) "****** Tempo de Processamento ******"

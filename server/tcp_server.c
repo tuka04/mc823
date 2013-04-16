@@ -55,17 +55,43 @@ void bindNlisten(int port, AVL *l){
 void receive_msg(int conn, AVL *l){
   char msg[TCP_BUF_SIZE];//msg transmit
   int b;//byte received
-  bool transmit=true;//continuar a receber msg
+  bool transmit=false;
   double ini;
+  int i=0;
   struct timeval tvini; //apenas assim para pegar microsegundos
   do{
     b = recv(conn,msg,TCP_BUF_SIZE,0);
     gettimeofday(&tvini, NULL); 
     msg[b] = '\0';
-    if(strlen(msg)>5){
+    transmit=false;
+    for(i=0;i<b;i=i+3){
+      if(b-i >= 3){
+	if(msg[i]!='A' || msg[i+1]!='C' || msg[i+2] != 'K'){
+	  transmit=false;
+	  i=b;
+	}
+	else{
+	  transmit=true;
+	}
+      }
+      else{
+	transmit=false;
+	i=b;
+      }
+    }
+    if(transmit){
+      for(i=3;i<TCP_BUF_SIZE;i++)
+	msg[i]='\0';
+    }
+    printf("%s\n",msg);
+    if(strcmp(msg,TCP_MSG_ACK)==0){
+      //do nothing
+      memset(msg,'\0',TCP_BUF_SIZE);
+    }
+    else if(strlen(msg)>5){
       send_menu(conn,true,NULL);
     }
-    else if(strcmp(msg,TCP_MSG_ACK)==0 || strcmp(msg,TCP_COMMAND_MENU)==0){
+    else if(strcmp(msg,TCP_COMMAND_MENU)==0){
       send_menu(conn,false,NULL);
     }
     else if (strcmp(msg,TCP_COMMAND_CLOSE_CONNECTION) == 0){
@@ -75,12 +101,13 @@ void receive_msg(int conn, AVL *l){
       ini=DOUBLE_MILHAO*(double)(tvini.tv_sec)+(double)(tvini.tv_usec);
       read_menu(conn,l,msg,ini);
     }
+    transmit=true;
   }while(transmit);
   close(conn);
 }
 
 void send_menu(int conn,bool alert, TimeVal *tvend){
-   char *msg[TAM_MENU];
+  char *msg[TAM_MENU];
   msg[0] = "*** MENU (tecle \\m para visualizar o menu) *********\n\0";
   msg[1] = "*** (1) Listar ISBN                                *\n\0";
   msg[2] = "*** (2) Ver descricacao por ISBN (entrada: ISBN)   *\n\0";
@@ -185,6 +212,7 @@ void send_desc_byId(int conn, AVL *l, TimeVal *tvend){
   send(conn,TCP_MSG_ISBN_REQUIRED,strlen(TCP_MSG_ISBN_REQUIRED),0);
   int b=recv(conn,msg,TCP_BUF_SIZE,0);//isbn?
   msg[b] = '\0'; 
+ printf("%s\n",msg);
   AVL_NO *livro=getAVLElemById(*l,msg);
   if(livro!=NULL){
     Livro *temp=(Livro *)livro->dado;
@@ -207,6 +235,7 @@ void send_book_info(int conn, AVL *l, TimeVal *tvend){
   int b=recv(conn,msg,TCP_BUF_SIZE,0);//isbn?
   msg[b] = '\0'; 
   AVL_NO *livro=getAVLElemById(*l,msg);
+ printf("%s\n",msg);
   if(livro!=NULL){
     Livro *temp=(Livro *)livro->dado;
     char *str = bookNodeToStr(temp);
@@ -239,15 +268,18 @@ void edit_estoque(int conn, AVL *l, TimeVal *tvend){
   send(conn,TCP_MSG_ISBN_REQUIRED,strlen(TCP_MSG_ISBN_REQUIRED),0);
   int b=recv(conn,msg,TCP_BUF_SIZE,0);//isbn?
   msg[b] = '\0'; 
+ printf("%s\n",msg);
   AVL_NO *livro=getAVLElemById(*l,msg);
   if(livro!=NULL){
     send(conn,TCP_MSG_LOGIN_REQUIRED,strlen(TCP_MSG_LOGIN_REQUIRED),0);
     b=recv(conn,msg,TCP_BUF_SIZE,0);//senha?
     msg[b] = '\0';
+ printf("%s\n",msg);
     if(doLogin(msg)){
       send(conn,TCP_MSG_QTD_REQUIRED,strlen(TCP_MSG_QTD_REQUIRED),0);
       b=recv(conn,msg,TCP_BUF_SIZE,0);//senha?
       msg[b] = '\0';
+ printf("%s\n",msg);
       int q=atoi(msg);
       if(q>=0){
 	Livro *aux = (Livro *)livro->dado;
@@ -277,6 +309,7 @@ void send_estoque_byId(int conn, AVL *l, TimeVal *tvend){
   send(conn,TCP_MSG_ISBN_REQUIRED,strlen(TCP_MSG_ISBN_REQUIRED),0);
   int b=recv(conn,msg,TCP_BUF_SIZE,0);//isbn?
   msg[b] = '\0'; 
+  printf("%s\n",msg);
   AVL_NO *livro=getAVLElemById(*l,msg);
   if(livro!=NULL){
     Livro *aux = (Livro *)livro->dado;
