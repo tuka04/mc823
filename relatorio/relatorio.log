@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2013.4.14)  16 APR 2013 01:33
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2013.4.14)  17 APR 2013 16:23
 entering extended mode
  %&-line parsing enabled.
 **relatorio.tex
@@ -534,12 +534,17 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 32.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
-) (./relatorio.toc)
+)
+<logo.jpg, id=67, 481.8pt x 260.975pt>
+File: logo.jpg Graphic file (type jpg)
+ <use logo.jpg> [1
+
+{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map} <./logo.jpg>] (./relatori
+o.toc)
 \tf@toc=\write5
 \openout5 = `relatorio.toc'.
 
-
-(./relatorio.lof)
+ (./relatorio.lof)
 \tf@lof=\write6
 \openout6 = `relatorio.lof'.
 
@@ -547,58 +552,73 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 \tf@lot=\write7
 \openout7 = `relatorio.lot'.
 
- [1
-
-{/usr/share/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 50.
+ [2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 56.
  (/usr/share/texmf/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 50.
- [2]
-Overfull \hbox (2.50168pt too wide) in paragraph at lines 108--109
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 56.
+ [3]
+Overfull \hbox (2.50168pt too wide) in paragraph at lines 114--115
 []\OT1/cmr/m/it/10 tcp[]server.c tcp[]server.h\OT1/cmr/m/n/10 : Ge-ren-cia tant
 o as co-nex~oes com os cli-en-tes quanto
  []
 
-[3] <fluxo_servidor.png, id=142, 451.6875pt x 577.15625pt>
+[4] <fluxo_servidor.png, id=166, 451.6875pt x 577.15625pt>
 File: fluxo_servidor.png Graphic file (type png)
 
-<use fluxo_servidor.png> <fluxo_cliente.png, id=143, 451.6875pt x 587.19376pt>
+<use fluxo_servidor.png> <fluxo_cliente.png, id=167, 451.6875pt x 587.19376pt>
 File: fluxo_cliente.png Graphic file (type png)
 
-<use fluxo_cliente.png> <fluxo_tempo.png, id=144, 622.325pt x 401.5pt>
+<use fluxo_cliente.png> <fluxo_tempo.png, id=168, 622.325pt x 401.5pt>
 File: fluxo_tempo.png Graphic file (type png)
 
-<use fluxo_tempo.png> (./dados/tt_1.tex) (./dados/tt_2.tex) (./dados/tt_3.tex)
+<use fluxo_tempo.png> [5] [6 <./fluxo_servidor.png (PNG copy)> <./fluxo_cliente
+.png (PNG copy)>] (./dados/tt_1.tex) (./dados/tt_2.tex) (./dados/tt_3.tex)
 (./dados/tt_4.tex) (./dados/tt_5.tex) (./dados/tt_6.tex)
 
-LaTeX Warning: Float too large for page by 34.19995pt on input line 196.
+LaTeX Warning: Float too large for page by 32.19998pt on input line 209.
 
-[4] [5] [6 <./fluxo_servidor.png (PNG copy)> <./fluxo_cliente.png (PNG copy)> <
-./fluxo_tempo.png>] (./relatorio.aux) ) 
+[7 <./fluxo_tempo.png>] [8] (./dados/tp_1.tex) (./dados/tp_2.tex)
+(./dados/tp_3.tex) (./dados/tp_4.tex) (./dados/tp_5.tex) (./dados/tt_6.tex)
+
+LaTeX Warning: Float too large for page by 32.19998pt on input line 259.
+
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
+
+ []
+
+
+Overfull \hbox (29.29945pt too wide) in paragraph at lines 265--272
+\OT1/cmr/m/n/10 J^^Sa o des-vio padr~ao amos-tral, de-no-mi-nado [] ^^Se cal-cu
+-lado como [] 
+ []
+
+[11] [12] (./relatorio.aux) ) 
 Here is how much of TeX's memory you used:
- 4770 strings out of 256216
- 64023 string characters out of 1917072
- 172758 words of memory out of 1500000
- 7886 multiletter control sequences out of 10000+200000
+ 4809 strings out of 256216
+ 64469 string characters out of 1917072
+ 168758 words of memory out of 1500000
+ 7894 multiletter control sequences out of 10000+200000
  12026 words of font info for 47 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 43i,11n,42p,817b,415s stack positions out of 5000i,500n,6000p,200000b,15000s
-</usr/share/texmf/fonts/type1/bluesky/cm
-/cmbx10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></usr/share/tex
-mf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/c
-mmi7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf/f
-onts/type1/bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr17.
-pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr5.pfb></usr/share/texmf/fonts/t
-ype1/bluesky/cm/cmr6.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr7.pfb></us
-r/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/blu
-esky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti10.pfb></usr/sh
-are/texmf/fonts/type1/bluesky/cm/cmtt8.pfb>
-Output written on relatorio.pdf (6 pages, 205429 bytes).
+ 43i,13n,42p,817b,422s stack positions out of 5000i,500n,6000p,200000b,15000s
+</usr/share/texmf/fonts/type1/bluesky/cm/cmbx10.pf
+b></usr/share/texmf/fonts/type1/bluesky/cm/cmbx12.pfb></usr/share/texmf/fonts/t
+ype1/bluesky/cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb>
+</usr/share/texmf/fonts/type1/bluesky/cm/cmmi7.pfb></usr/share/texmf/fonts/type
+1/bluesky/cm/cmr10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></usr
+/share/texmf/fonts/type1/bluesky/cm/cmr17.pfb></usr/share/texmf/fonts/type1/blu
+esky/cm/cmr5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr6.pfb></usr/share/
+texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
+cmr8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/
+fonts/type1/bluesky/cm/cmti10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmtt
+8.pfb>
+Output written on relatorio.pdf (12 pages, 245694 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
- 54 named destinations out of 1000 (max. 131072)
- 120 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 288 PDF objects out of 1000 (max. 8388607)
+ 66 named destinations out of 1000 (max. 131072)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

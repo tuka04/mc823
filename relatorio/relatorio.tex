@@ -24,14 +24,20 @@
 }
 %titulo
 \title{Servidor Concorrente TCP}
-\author{Leandro Kümmel Tria Mendes RA033910 \\ Fernando Teixeira RA??????}
+\author{Leandro Kümmel Tria Mendes RA033910 \\ Fernando Teixeira RA085858}
 \makeindex
 %inicio
 \begin{document}
 \maketitle
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.5]{logo.jpg}
+\end{figure}
+\newpage
 \tableofcontents
 \listoffigures
 \listoftables
+\newpage
 \section{Introdução}
 O objetivo desse projeto é implementar um sistema cliente/servidor
 concorrente, com operações para o gerenciamento de livros em uma livraria.
@@ -147,11 +153,12 @@ Como a função \boxed{rcv(int sockfd, void *buf, size_t len, int flags)}\footno
   \includegraphics[scale=0.5]{fluxo_tempo.png}
   \caption{Definição do cálculo dos tempos}
 \end{figure}
+\newpage
 \section{Resultados e discussões}
 Os testes foram efetuados em duas máquinas, ambas conectadas à rede porém, não localmente. Denominaremos a máquina servidor como [S] e a cliente como [C]. [S] e [C] estão em continentes diferentes.
 \\Foram efetuadas 100 medições para cada opção do menu[\ref{itm:tcpserver}], ao todo foram 600 medições de tempo. Dividiu-se o tempo em tempo de processamento e tempo de comunicação, sendo o último a diferença entre o tempo total e o tempo de processamento.
 \subsection{Tabelas e gráficos}
-\subsubsection{Tempo total}
+\subsubsection{Tempo total}[\ref{fluxotempo}]
 Representaremos todas as 100 medidas das 6 opções do menu[\ref{itm:tcpserver}]
 \begin{table}
   \tiny
@@ -160,38 +167,127 @@ Representaremos todas as 100 medidas das 6 opções do menu[\ref{itm:tcpserver}]
     \hline
     Opção 1 [ms] \\
     \hline
-    \input{dados/tt_1.tex}
+    \input{dados/tt_1.tex}    
+    \hline
   \end{tabular}
   \begin{tabular}{|c|}
     \hline
     Opção 2 [ms] \\
     \hline
     \input{dados/tt_2.tex}
+    \hline
   \end{tabular}
   \begin{tabular}{|c|}
     \hline
     Opção 3 [ms] \\
     \hline
     \input{dados/tt_3.tex}
+    \hline
   \end{tabular}
   \begin{tabular}{|c|}
     \hline
     Opção 4 [ms] \\
     \hline
     \input{dados/tt_4.tex}
+    \hline
   \end{tabular}
   \begin{tabular}{|c|}
     \hline
     Opção 5 [ms] \\
     \hline
     \input{dados/tt_5.tex}
+    \hline
   \end{tabular}
   \begin{tabular}{|c|}
     \hline
     Opção 6 [ms] \\
     \hline
     \input{dados/tt_6.tex}
+    \hline
   \end{tabular}
-  \caption{Tabela de tempo total}{|c|}
+  \caption{Tabela de tempo total}
 \end{table}
+\newpage
+\subsubsection{Tempo de processamento}[\ref{fluxotempo}]
+Representaremos todas as 100 medidas das 6 opções do menu[\ref{itm:tcpserver}]
+\begin{table}
+  \tiny
+  \centering
+  \begin{tabular}{|c|}
+    \hline
+    Opção 1 [ms] \\
+    \hline
+    \input{dados/tp_1.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 2 [ms] \\
+    \hline
+    \input{dados/tp_2.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 3 [ms] \\
+    \hline
+    \input{dados/tp_3.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 4 [ms] \\
+    \hline
+    \input{dados/tp_4.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 5 [ms] \\
+    \hline
+    \input{dados/tp_5.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 6 [ms] \\
+    \hline
+    \input{dados/tt_6.tex}
+    \hline
+  \end{tabular}
+  \caption{Tabela de tempo de processamento}
+\end{table}
+\newpage
+\subsection{Médias e gráficos}
+Devido ao grande número de dados decidimos por representar graficamente apenas as
+médias e desvios de cada opção do menu[\ref{itm:tcpserver}].\\
+\subsubsection{Cálculos}
+A média calculada entre os pontos foi a média simples, em outras palavras, denominamos a 
+média como \boxed{\mu} então, \boxed{\mu = \frac{1}{N}\sum_{i=1}^{N}\left(x_i\right)}, onde N
+é o número de pontos, no caso desse projeto temos N=100 medidas para cada uma das opções de menu[\ref{itm:tcpserver}].\\
+Já o desvio padrão amostral, denominado \boxed{\sigma} é calculado como \boxed{\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}\left(x_i - \mu\right)^2}}\\
+Seja \boxed{\mu_t}, \boxed{\mu_p}, \boxed{\mu_c}, a média do tempo total, média do tempo de processamento e média do tempo de comunicação,
+respectivamente, e o desvio padrão do tempo de comunicação, de
+nominado \boxed{\sigma_c}.
+\newpage
+\begin{table}
+  \centering
+  \begin{tabular}{|c|c|c|c||c|}
+    \hline
+    Menu & \boxed{\mu_t} & \boxed{\mu_p} & \boxed{\mu_c} &  \boxed{\pm \sigma_c} \\
+    \hline
+    1 & 190559,24 & 59,13 & 190500,11 & 7720,62 (4,05\%)\\
+    2 & 381804,32 & 191211,66 & 190592,66  & 3446,65 (1,80\%)\\
+    3 & 383214,91 & 191636,56 & 191578,35 & 4483,76 (4,89\%)\\
+    4 & 374492,29 & 557,72 & 373934,57 & 99632,35 (26,64\%)\\
+    5 & 820829,07 & 571827,67 & 249001,40 & 64343,48 (25,84\%)\\
+    6 & 382556,63 & 191372,81 & 191183,82 & 12192.48 (6,37\%)\\
+    \hline
+  \end{tabular}
+  \caption{Tabela com médias e desvios}
+\end{table}
+\section{Conclusão}
+Nota-se que as opções 1, 2, 3 e 6 têm o tempo de comunicação parecidos, uma vez que a quantidade de dados transmitida não difere muito um do outro. Já a opção 4 e 5 
+possuem um alto tempo de comunicação (consequentemente alto tempo total) devido, respectivamente, ao grande volume de dados transmitidos e a quantidade de mensagens
+de comunicação (o menu 5 requer ISBN, senha e quantidade em estoque).
 \end{document}
