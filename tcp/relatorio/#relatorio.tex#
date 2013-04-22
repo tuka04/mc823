@@ -3,6 +3,8 @@
 \documentclass[a4paper,10pt]{article}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
+%codigo
+\usepackage{listings} 
 %\usepackage[latin1]{inputenc}
 \usepackage{amsthm,amsfonts,amsmath,amssymb}
 %img
@@ -290,4 +292,54 @@ nominado \boxed{\sigma_c}.
 Nota-se que as opções 1, 2, 3 e 6 têm o tempo de comunicação parecidos, uma vez que a quantidade de dados transmitida não difere muito um do outro. Já a opção 4 e 5 
 possuem um alto tempo de comunicação (consequentemente alto tempo total) devido, respectivamente, ao grande volume de dados transmitidos e a quantidade de mensagens
 de comunicação (o menu 5 requer ISBN, senha e quantidade em estoque).
+\newpage
+\section{Código fonte}
+\subsection{error.c}
+\begin{lstlisting}
+#include "error.h"
+
+void printError(int e){
+  switch(e){
+  case ERROR_SOCKET:
+    perror("socket:: naco foi possivel criar um novo socket\n");
+    break;
+  case ERROR_SOCKET_CLIENT:
+    perror("socket:: nao foi possivel conectar ao cliente\n");
+    break;
+  case ERROR_SOCKET_SEND:
+    perror("socket:: nao foi possivel enviar mensagem para o servidor\n");
+    break;
+  case ERROR_SOCKET_SERVER_ERROR:
+    perror("send_msg:: ocorreu um erro na comunicacao com o servidor, tente novamente");
+    break;
+  case ERROR_SOCKET_CLIENT_CLOSED:
+    perror("receive_msg:: cliente fechou a conexao");
+    break;
+  case ERROR_SOCKET_SERVER_CLOSED:
+    perror("send_msg:: servidor fechou a conexao");
+    break;
+  case ERROR_SOCKET_SERVER_BIND:
+    perror("start_server:: ocorreu um erro com o bind");
+    break;
+  case ERROR_SOCKET_SERVER_LISTEN:
+    perror("start_server:: ocorreu um erro com o listen");
+    break;
+  case ERROR_SOCKET_SERVER_ACCEPT:
+    perror("start_server:: ocorreu um erro com o accept");
+    break;
+  case ERROR_USAGE_MAIN:
+    printf("erro de entrada: tente ./main <num_porta> (para iniciar servidor) ou ./main <endereco_ip> <porta> para iniciar o cliente\n");
+    break;
+  case ERROR_USAGE_TEST:
+    printf("erro de entrada: tente ./test <endereco_ip> <porta> para iniciar o cliente (o servidor deve estar up!)\n");
+    break;
+  case ERROR_FILE_OPEN:
+    perror("archives:: Erro ao abrir arquivo\n");
+    break;
+  case ERROR_NUM_COLUNAS_BOOKS:
+    printf("archives:: Arquivo com conteudo de livros corrompido. VEJA README PARA MAIS DETALHES\n");
+    break;
+  }
+}
+\end{lstlisting}
 \end{document}
