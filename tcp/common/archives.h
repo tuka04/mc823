@@ -22,7 +22,6 @@
 
 #define ARCHIVES_TAM_BUFFER 65536
 #define NUM_COLUNAS_BOOKS 7
-#define COCOZAO 2
 
 /**
  * Funcao que abre o arquivo 

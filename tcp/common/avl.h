@@ -12,11 +12,11 @@
 
 
 typedef struct avl {
-  int bal;//balanceamento avl
-  char *id;//id
-  struct avl *dir;//direita
-  struct avl *esq;//esquerdo
-  void *dado;//dado qualquer (estrutura)
+  int bal;/*balanceamento avl*/
+  char *id;/*id*/
+  struct avl *dir;/*direita*/
+  struct avl *esq;/*esquerdo*/
+  void *dado;/*dado qualquer (estrutura)*/
 }*AVL,AVL_NO;
 /**
  * Inicializa uma arv avl;
@@ -39,11 +39,6 @@ void LR(AVL *avl);
 void RL_X(AVL *avl);
 int aux_insereAVL(AVL *avl, Livro *l, int *cresceu);
 int insereAVL(AVL *avl, Livro *l);
-/**
- * Busca prefixa
- **/
-//AVL_NO *buscaPorX(AVL *avl, int isbn);
-
 /**
  * @function : Grava todos os ids separados pelo delimitador em uma string
  * @param AVL avl : estrutura avl

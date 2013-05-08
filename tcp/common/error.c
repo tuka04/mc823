@@ -8,6 +8,9 @@ void printError(int e){
   case ERROR_SOCKET_CLIENT:
     perror("socket:: nao foi possivel conectar ao cliente\n");
     break;
+  case ERROR_SOCKET_RCV_MSG:
+    perror("socket:: erro ao receber mensagem\n");
+    break;
   case ERROR_SOCKET_SEND:
     perror("socket:: nao foi possivel enviar mensagem para o servidor\n");
     break;
@@ -40,6 +43,8 @@ void printError(int e){
     break;
   case ERROR_NUM_COLUNAS_BOOKS:
     printf("archives:: Arquivo com conteudo de livros corrompido. VEJA README PARA MAIS DETALHES\n");
+  case ERROR_UDP_MAX_RETRY:
+    perror("udp_sendto:: Limite máximo de tentativas de envio, altere UDP_MAX_RETRY \n");
     break;
   }
 }

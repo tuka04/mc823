@@ -1,5 +1,10 @@
 #include "common.h"
 
+void trapAnySignal(int s){
+  printf("Signal:: ",s);
+  exit(s);
+}
+
 char* my_itoa(int val, int base){	
   static char buf[32] = {0};
   int i = 30;

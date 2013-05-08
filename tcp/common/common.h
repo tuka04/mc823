@@ -11,6 +11,16 @@
 #define NUM_TESTES 100
 #define OPT_TESTE "-t"
 
+typedef struct timeval TimeVal;
+typedef struct sockaddr_in SA_IN;
+typedef struct sockaddr SA;
+typedef struct addrinfo AI;
+
+/**
+ * Armadilha para qualquer tipo de sinal
+ * @param int s: signal
+ **/
+void trapAnySignal(int s);
 /**
  * Convert inteiro na base escolhida para string
  * @param int val

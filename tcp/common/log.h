@@ -6,7 +6,8 @@
 #include <time.h>
 #include "error.h" 
 #define LOG_FILE "./log.txt"
-
+#define LOG 0
+#define DEBUG 0
 /**
  * Escreve em um arquivo de log. Os parametros sao o titulo e mensagem a ser
  * escriva. Formato de escrita eh: title (time): msg

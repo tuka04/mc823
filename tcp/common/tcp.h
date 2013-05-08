@@ -2,8 +2,10 @@
 #define _H_TCP
 
 #define TCP_BUF_SIZE 1024 /*tamanho do buffer de escrita*/
+#define TCP_BUF_MIN_SIZE 5/*tamanho do buffer_minimo de escrita*/
 #define TCP_MAX_CONN 50 /*maximo de conexoes que o server tcp aceitara*/
 #define TCP_MSG_WELCOME "Welcome to Server\n"
+#define TCP_MSG_HELLO "Hello\0"
 #define TCP_MSG_BYE "Bye\n"
 #define TCP_MSG_ACK "ACK\0"
 #define TCP_MSG_COMMAND_NOT_FOUND "*ERRO*: Comando nao reconhecido\n"
@@ -18,4 +20,6 @@
 
 #define TAM_CAMPO_MSG 10
 #define DEL_CAMPO_MSG "$"
+
+#define UDP_MAX_RETRY 10
 #endif

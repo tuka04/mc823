@@ -5,21 +5,21 @@
 #include "string.h"
 #include "common.h"
 
-#define FILE_BOOK "./common/livros/livros"
+#define FILE_BOOK "../tcp/common/livros/livros"
 #define BOOK_NOT_FOUND "ISBN nao encontrado!\n"
 typedef struct autor {
-  char *nome; //nome do campo
-  struct autor *prox;//apontador para o proximo
+  char *nome; /*nome do campo*/
+  struct autor *prox;/*apontador para o proximo*/
 } *Autores, Autor;
 
 typedef struct book {
-  char *isbn;//id
-  char *titulo;//title
-  Autores autores;//estrutura de autor
-  char *desc;//descricao
-  char *editora;//editora
-  char *ano;//data (apenas ano)
-  int estoque;//numero de exemplares
+  char *isbn;/*id*/
+  char *titulo;/*title*/
+  Autores autores;/*estrutura de autor*/
+  char *desc;/*descricao*/
+  char *editora;/*editora*/
+  char *ano;/*data*/
+  int estoque;/*numero de exemplares*/
 } Livro;
 
 enum BOOKS_FILE_ORDER {
