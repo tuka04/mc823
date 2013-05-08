@@ -11,23 +11,23 @@ Scanning input file relatorio.tex...
 !! Input index error (file = relatorio.tex, line = 5):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 6):
-   -- Unknown index keyword \usepackage.
-!! Input index error (file = relatorio.tex, line = 7):
    -- Unknown index keyword %\usepackage[latin1].
-!! Input index error (file = relatorio.tex, line = 8):
+!! Input index error (file = relatorio.tex, line = 7):
    -- Unknown index keyword \usepackage.
-!! Input index error (file = relatorio.tex, line = 9):
+!! Input index error (file = relatorio.tex, line = 8):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 9):
+   -- Unknown index keyword \usepackage.
 !! Input index error (file = relatorio.tex, line = 10):
    -- Unknown index keyword \usepackage.
 !! Input index error (file = relatorio.tex, line = 11):
-   -- Unknown index keyword \usepackage.
-!! Input index error (file = relatorio.tex, line = 12):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 13):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 14):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 15):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \usepackage.
 !! Input index error (file = relatorio.tex, line = 16):
    -- Unknown index keyword \usepackage.
 !! Input index error (file = relatorio.tex, line = 17):
@@ -48,30 +48,28 @@ Scanning input file relatorio.tex...
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 25):
    -- Missing arguments -- need two (premature LFD).
-!! Input index error (file = relatorio.tex, line = 26):
-   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 27):
-   -- Unknown index keyword \title.
-!! Input index error (file = relatorio.tex, line = 28):
-   -- Unknown index keyword \author.
-!! Input index error (file = relatorio.tex, line = 29):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 28):
+   -- Unknown index keyword \title.
+!! Input index error (file = relatorio.tex, line = 29):
+   -- Unknown index keyword \author.
 !! Input index error (file = relatorio.tex, line = 30):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 31):
-   -- Unknown index keyword \begin.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 32):
-   -- Missing arguments -- need two (premature LFD).
-!! Input index error (file = relatorio.tex, line = 33):
    -- Unknown index keyword \begin.
+!! Input index error (file = relatorio.tex, line = 33):
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 34):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 35):
-   -- Unknown index keyword \includegraphics[scale=0.5].
-!! Input index error (file = relatorio.tex, line = 36):
-   -- Unknown index keyword \end.
-!! Input index error (file = relatorio.tex, line = 37):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 36):
+   -- Unknown index keyword \includegraphics[scale=0.5].
+!! Input index error (file = relatorio.tex, line = 37):
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 38):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 39):
@@ -81,155 +79,155 @@ Scanning input file relatorio.tex...
 !! Input index error (file = relatorio.tex, line = 41):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 42):
-   -- Unknown index keyword \section.
-!! Input index error (file = relatorio.tex, line = 43):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 43):
+   -- Unknown index keyword \section.
 !! Input index error (file = relatorio.tex, line = 44):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 45):
-   -- Unknown index keyword Nacomunicaçãoentreclienteeservidorutilizou-seoprotocoloUDP\footnote.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 46):
-   -- Unknown index keyword MaisinformaçõessobreUDP\url.
+   -- Unknown index keyword Nacomunicaçãoentreclienteeservidorutilizou-seoprotocoloUDP\footnote.
 !! Input index error (file = relatorio.tex, line = 47):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword MaisinformaçõessobreUDP\url.
 !! Input index error (file = relatorio.tex, line = 48):
-   -- Unknown index keyword \section.
-!! Input index error (file = relatorio.tex, line = 49):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 49):
+   -- Unknown index keyword \section.
 !! Input index error (file = relatorio.tex, line = 50):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 51):
-   -- Unknown index keyword \subsection.
-!! Input index error (file = relatorio.tex, line = 52):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 52):
+   -- Unknown index keyword \subsection.
 !! Input index error (file = relatorio.tex, line = 53):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 54):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 55):
-   -- Unknown index keyword OprotocoloUDP,UserDatagramProtocol,nãoenviadadosem\"stream\"simem\"datagrams\footnote.
-!! Input index error (file = relatorio.tex, line = 56):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 56):
+   -- Unknown index keyword OprotocoloUDP,UserDatagramProtocol,nãoenviadadosem\"stream\"simem\"datagrams\footnote.
 !! Input index error (file = relatorio.tex, line = 57):
-   -- Unknown index keyword \begin.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 58):
-   -- Unknown index keyword \item\emph.
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 59):
    -- Unknown index keyword \item\emph.
 !! Input index error (file = relatorio.tex, line = 60):
    -- Unknown index keyword \item\emph.
 !! Input index error (file = relatorio.tex, line = 61):
-   -- Unknown index keyword \end.
+   -- Unknown index keyword \item\emph.
 !! Input index error (file = relatorio.tex, line = 62):
-   -- Unknown index keyword \subsection.
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 63):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \subsection.
 !! Input index error (file = relatorio.tex, line = 64):
-   -- Unknown index keyword principal(main.cemain.h)eumREADME.md\footnote.
-!! Input index error (file = relatorio.tex, line = 65):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 65):
+   -- Unknown index keyword principal(main.cemain.h)eumREADME.md\footnote.
 !! Input index error (file = relatorio.tex, line = 66):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 67):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 68):
-   -- Unknown index keyword \begin.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 69):
-   -- Unknown index keyword \label.
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 70):
-   -- Unknown index keyword \item\label.
+   -- Unknown index keyword \label.
 !! Input index error (file = relatorio.tex, line = 71):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \item\label.
 !! Input index error (file = relatorio.tex, line = 72):
-   -- Unknown index keyword \item\label.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 73):
-   -- Missing arguments -- need two (premature LFD).
-!! Input index error (file = relatorio.tex, line = 74):
    -- Unknown index keyword \item\label.
-!! Input index error (file = relatorio.tex, line = 75):
+!! Input index error (file = relatorio.tex, line = 74):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 75):
+   -- Unknown index keyword \item\label.
 !! Input index error (file = relatorio.tex, line = 76):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 77):
-   -- Unknown index keyword \item\label.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 78):
    -- Unknown index keyword \item\label.
 !! Input index error (file = relatorio.tex, line = 79):
-   -- Unknown index keyword \end.
+   -- Unknown index keyword \item\label.
 !! Input index error (file = relatorio.tex, line = 80):
-   -- Unknown index keyword \subsubsection.
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 81):
-   -- Unknown index keyword Todasasestruturasutilizadasparaleitura/escritadoslivrossãodinâmicas.\\Arquivospresentesnodiretório\emph.
+   -- Unknown index keyword \subsubsection.
 !! Input index error (file = relatorio.tex, line = 82):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword Todasasestruturasutilizadasparaleitura/escritadoslivrossãodinâmicas.\\Arquivospresentesnodiretório\emph.
 !! Input index error (file = relatorio.tex, line = 83):
-   -- Unknown index keyword \item\emph.
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 84):
    -- Unknown index keyword \item\emph.
 !! Input index error (file = relatorio.tex, line = 85):
-   -- Unknown index keyword \item\label.
+   -- Unknown index keyword \item\emph.
 !! Input index error (file = relatorio.tex, line = 86):
-   -- Unknown index keyword árvoreAVL\footnote.
+   -- Unknown index keyword \item\label.
 !! Input index error (file = relatorio.tex, line = 87):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword árvoreAVL\footnote.
 !! Input index error (file = relatorio.tex, line = 88):
-   -- Unknown index keyword \item\emph.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 89):
-   -- Unknown index keyword dalivraria\footnote.
+   -- Unknown index keyword \item\emph.
 !! Input index error (file = relatorio.tex, line = 90):
-   -- Unknown index keyword \item\label.
+   -- Unknown index keyword dalivraria\footnote.
 !! Input index error (file = relatorio.tex, line = 91):
-   -- Unknown index keyword \item\emph.
+   -- Unknown index keyword \item\label.
 !! Input index error (file = relatorio.tex, line = 92):
-   -- Unknown index keyword \item\label.
+   -- Unknown index keyword \item\emph.
 !! Input index error (file = relatorio.tex, line = 93):
-   -- Unknown index keyword \item\emph.
+   -- Unknown index keyword \item\label.
 !! Input index error (file = relatorio.tex, line = 94):
-   -- Unknown index keyword \end.
+   -- Unknown index keyword \item\emph.
 !! Input index error (file = relatorio.tex, line = 95):
-   -- Unknown index keyword \subsubsection.
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 96):
-   -- Unknown index keyword Compreendedoisdiretórios\emph.
+   -- Unknown index keyword \subsubsection.
 !! Input index error (file = relatorio.tex, line = 97):
-   -- Unknown index keyword \\\textbf.
+   -- Unknown index keyword Compreendedoisdiretórios\emph.
 !! Input index error (file = relatorio.tex, line = 98):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \\\textbf.
 !! Input index error (file = relatorio.tex, line = 99):
-   -- Unknown index keyword \item\emph.
-!! Input index error (file = relatorio.tex, line = 100):
-   -- Unknown index keyword \item\label.
-!! Input index error (file = relatorio.tex, line = 101):
-   -- Unknown index keyword deumpacote,queéumachamadadosistema(syscall)\footnote.
-!! Input index error (file = relatorio.tex, line = 102):
-   -- Missing arguments -- need two (premature LFD).
-!! Input index error (file = relatorio.tex, line = 103):
-   -- Unknown index keyword \item\emph.
-!! Input index error (file = relatorio.tex, line = 104):
-   -- Unknown index keyword \end.
-!! Input index error (file = relatorio.tex, line = 105):
-   -- Unknown index keyword \textbf.
-!! Input index error (file = relatorio.tex, line = 106):
    -- Unknown index keyword \begin.
-!! Input index error (file = relatorio.tex, line = 107):
+!! Input index error (file = relatorio.tex, line = 100):
    -- Unknown index keyword \item\emph.
-!! Input index error (file = relatorio.tex, line = 108):
+!! Input index error (file = relatorio.tex, line = 101):
    -- Unknown index keyword \item\label.
-!! Input index error (file = relatorio.tex, line = 109):
+!! Input index error (file = relatorio.tex, line = 102):
+   -- Unknown index keyword deumpacote,queéumachamadadosistema(syscall)\footnote.
+!! Input index error (file = relatorio.tex, line = 103):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 104):
+   -- Unknown index keyword \item\emph.
+!! Input index error (file = relatorio.tex, line = 105):
    -- Unknown index keyword \end.
+!! Input index error (file = relatorio.tex, line = 106):
+   -- Unknown index keyword \textbf.
+!! Input index error (file = relatorio.tex, line = 107):
+   -- Unknown index keyword \begin.
+!! Input index error (file = relatorio.tex, line = 108):
+   -- Unknown index keyword \item\emph.
+!! Input index error (file = relatorio.tex, line = 109):
+   -- Unknown index keyword \item\label.
 !! Input index error (file = relatorio.tex, line = 110):
-   -- Unknown index keyword \subsection.
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 111):
-   -- Unknown index keyword Pararealizarostestesimplementou-sealgunsarquivosadicionas[\ref.
-!! Input index error (file = relatorio.tex, line = 112):
-   -- Unknown index keyword salvosnodiretório\emph.
-!! Input index error (file = relatorio.tex, line = 113):
    -- Unknown index keyword \subsection.
+!! Input index error (file = relatorio.tex, line = 112):
+   -- Unknown index keyword Pararealizarostestesimplementou-sealgunsarquivosadicionas[\ref.
+!! Input index error (file = relatorio.tex, line = 113):
+   -- Unknown index keyword salvosnodiretório\emph.
 !! Input index error (file = relatorio.tex, line = 114):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \subsection.
 !! Input index error (file = relatorio.tex, line = 115):
-   -- Unknown index keyword Aescolhadaestruturadeárvoreavl[\ref.
-!! Input index error (file = relatorio.tex, line = 116):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 116):
+   -- Unknown index keyword Aescolhadaestruturadeárvoreavl[\ref.
 !! Input index error (file = relatorio.tex, line = 117):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 118):
@@ -237,75 +235,75 @@ Scanning input file relatorio.tex...
 !! Input index error (file = relatorio.tex, line = 119):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 120):
-   -- Unknown index keyword \\Comrelaçãoacomunicaçãoentrecliente/servidor,valeressaltarqueháumatrocademensagens\footnote.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 121):
-   -- Unknown index keyword Comoafunção\boxed.
+   -- Unknown index keyword \\Comrelaçãoacomunicaçãoentrecliente/servidor,valeressaltarqueháumatrocademensagens\footnote.
 !! Input index error (file = relatorio.tex, line = 122):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword Comoafunção\boxed.
 !! Input index error (file = relatorio.tex, line = 123):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 124):
-   -- Unknown index keyword \subfloat[FluxogramaServidor].
-!! Input index error (file = relatorio.tex, line = 125):
-   -- Unknown index keyword \includegraphics[width=150px,height=300px].
-!! Input index error (file = relatorio.tex, line = 126):
-   -- Unknown index keyword \label.
-!! Input index error (file = relatorio.tex, line = 127):
-   -- Missing arguments -- need two (premature LFD).
-!! Input index error (file = relatorio.tex, line = 128):
-   -- Missing arguments -- need two (premature LFD).
-!! Input index error (file = relatorio.tex, line = 129):
-   -- Unknown index keyword \subfloat[FluxogramaCliente].
-!! Input index error (file = relatorio.tex, line = 130):
-   -- Unknown index keyword \label.
-!! Input index error (file = relatorio.tex, line = 131):
-   -- Unknown index keyword \includegraphics[width=150px,height=300px].
-!! Input index error (file = relatorio.tex, line = 132):
-   -- Missing arguments -- need two (premature LFD).
-!! Input index error (file = relatorio.tex, line = 133):
-   -- Unknown index keyword \caption.
-!! Input index error (file = relatorio.tex, line = 134):
-   -- Unknown index keyword \label.
-!! Input index error (file = relatorio.tex, line = 135):
-   -- Unknown index keyword \end.
-!! Input index error (file = relatorio.tex, line = 136):
    -- Unknown index keyword \begin.
-!! Input index error (file = relatorio.tex, line = 137):
+!! Input index error (file = relatorio.tex, line = 125):
    -- Missing arguments -- need two (premature LFD).
-!! Input index error (file = relatorio.tex, line = 138):
+!! Input index error (file = relatorio.tex, line = 126):
+   -- Unknown index keyword \subfloat[FluxogramaServidor].
+!! Input index error (file = relatorio.tex, line = 127):
+   -- Unknown index keyword \includegraphics[width=150px,height=300px].
+!! Input index error (file = relatorio.tex, line = 128):
    -- Unknown index keyword \label.
-!! Input index error (file = relatorio.tex, line = 139):
-   -- Unknown index keyword \includegraphics[scale=0.5].
-!! Input index error (file = relatorio.tex, line = 140):
+!! Input index error (file = relatorio.tex, line = 129):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 130):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 131):
+   -- Unknown index keyword \subfloat[FluxogramaCliente].
+!! Input index error (file = relatorio.tex, line = 132):
+   -- Unknown index keyword \label.
+!! Input index error (file = relatorio.tex, line = 133):
+   -- Unknown index keyword \includegraphics[width=150px,height=300px].
+!! Input index error (file = relatorio.tex, line = 134):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 135):
    -- Unknown index keyword \caption.
-!! Input index error (file = relatorio.tex, line = 141):
+!! Input index error (file = relatorio.tex, line = 136):
+   -- Unknown index keyword \label.
+!! Input index error (file = relatorio.tex, line = 137):
    -- Unknown index keyword \end.
+!! Input index error (file = relatorio.tex, line = 138):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 139):
+   -- Unknown index keyword \begin.
+!! Input index error (file = relatorio.tex, line = 140):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 141):
+   -- Unknown index keyword \label.
 !! Input index error (file = relatorio.tex, line = 142):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \includegraphics[scale=0.5].
 !! Input index error (file = relatorio.tex, line = 143):
-   -- Unknown index keyword \section.
+   -- Unknown index keyword \caption.
 !! Input index error (file = relatorio.tex, line = 144):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 145):
-   -- Unknown index keyword \\Foramefetuadas100mediçõesparacadaopçãodomenu[\ref.
-!! Input index error (file = relatorio.tex, line = 146):
    -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 146):
+   -- Unknown index keyword \section.
 !! Input index error (file = relatorio.tex, line = 147):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 148):
-   -- Unknown index keyword \input.
+   -- Unknown index keyword \\Foramefetuadas100mediçõesparacadaopçãodomenu[\ref.
 !! Input index error (file = relatorio.tex, line = 149):
-   -- Unknown index keyword \subsection.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 150):
-   -- Unknown index keyword \subsubsection.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 151):
-   -- Unknown index keyword Representaremostodasas100medidasdas6opçõesdomenu[\ref.
+   -- Unknown index keyword \lstinputlisting.
 !! Input index error (file = relatorio.tex, line = 152):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \subsection.
 !! Input index error (file = relatorio.tex, line = 153):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \subsubsection.
 !! Input index error (file = relatorio.tex, line = 154):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword Representaremostodasas100medidasdas6opçõesdomenu[\ref.
 !! Input index error (file = relatorio.tex, line = 155):
    -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 156):
@@ -313,99 +311,99 @@ Scanning input file relatorio.tex...
 !! Input index error (file = relatorio.tex, line = 157):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 158):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 159):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 160):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 161):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 162):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 163):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 164):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 165):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 166):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 167):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 168):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 169):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 170):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 171):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 172):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 173):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 174):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 175):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 176):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 177):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 178):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 179):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 180):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 181):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 182):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 183):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 184):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 185):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 186):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 187):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 188):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 189):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 190):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 191):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 192):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 193):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 194):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 195):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 196):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 197):
-   -- Unknown index keyword \caption.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 198):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 199):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 200):
-   -- Unknown index keyword \subsubsection.
+   -- Unknown index keyword \caption.
 !! Input index error (file = relatorio.tex, line = 201):
-   -- Unknown index keyword Representaremostodasas100medidasdas6opçõesdomenu[\ref.
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 202):
-   -- Unknown index keyword \begin.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 203):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \subsubsection.
 !! Input index error (file = relatorio.tex, line = 204):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword Representaremostodasas100medidasdas6opçõesdomenu[\ref.
 !! Input index error (file = relatorio.tex, line = 205):
    -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 206):
@@ -413,147 +411,147 @@ Scanning input file relatorio.tex...
 !! Input index error (file = relatorio.tex, line = 207):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 208):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 209):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 210):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 211):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 212):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 213):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 214):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 215):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 216):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 217):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 218):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 219):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 220):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 221):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 222):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 223):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 224):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 225):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 226):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 227):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 228):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 229):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 230):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 231):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 232):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 233):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 234):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 235):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 236):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 237):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 238):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 239):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 240):
-   -- Unknown index keyword \begin.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 241):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 242):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 243):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 244):
-   -- Unknown index keyword \input.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 245):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 246):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 247):
-   -- Unknown index keyword \caption.
+   -- Unknown index keyword \input.
 !! Input index error (file = relatorio.tex, line = 248):
-   -- Unknown index keyword \end.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 249):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 250):
-   -- Unknown index keyword \subsection.
+   -- Unknown index keyword \caption.
 !! Input index error (file = relatorio.tex, line = 251):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 252):
-   -- Unknown index keyword médiasedesviosdecadaopçãodomenu[\ref.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 253):
-   -- Unknown index keyword \subsubsection.
+   -- Unknown index keyword \subsection.
 !! Input index error (file = relatorio.tex, line = 254):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 255):
-   -- Unknown index keyword médiacomo\boxed.
+   -- Unknown index keyword médiasedesviosdecadaopçãodomenu[\ref.
 !! Input index error (file = relatorio.tex, line = 256):
-   -- Unknown index keyword éonúmerodepontos,nocasodesseprojetotemosN=100medidasparacadaumadasopçõesdemenu[\ref.
+   -- Unknown index keyword \subsubsection.
 !! Input index error (file = relatorio.tex, line = 257):
-   -- Unknown index keyword Jáodesviopadrãoamostral,denominado\boxed.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 258):
-   -- Unknown index keyword Seja\boxed.
+   -- Unknown index keyword médiacomo\boxed.
 !! Input index error (file = relatorio.tex, line = 259):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword éonúmerodepontos,nocasodesseprojetotemosN=100medidasparacadaumadasopçõesdemenu[\ref.
 !! Input index error (file = relatorio.tex, line = 260):
-   -- Unknown index keyword nominado\boxed.
+   -- Unknown index keyword Jáodesviopadrãoamostral,denominado\boxed.
 !! Input index error (file = relatorio.tex, line = 261):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword Seja\boxed.
 !! Input index error (file = relatorio.tex, line = 262):
-   -- Unknown index keyword \begin.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 263):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword nominado\boxed.
 !! Input index error (file = relatorio.tex, line = 264):
-   -- Unknown index keyword \begin.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 265):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 266):
-   -- Unknown index keyword Menu&\boxed.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 267):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \subfloat[GráficosTempodecomunicaçãoetotal].
 !! Input index error (file = relatorio.tex, line = 268):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \includegraphics[width=300px,height=500px].
 !! Input index error (file = relatorio.tex, line = 269):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \label.
 !! Input index error (file = relatorio.tex, line = 270):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 271):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 272):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 273):
-   -- Missing arguments -- need two (premature LFD).
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 274):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 275):
-   -- Unknown index keyword \end.
+   -- Unknown index keyword \begin.
 !! Input index error (file = relatorio.tex, line = 276):
-   -- Unknown index keyword \caption.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 277):
-   -- Unknown index keyword \end.
+   -- Unknown index keyword Menu&\boxed.
 !! Input index error (file = relatorio.tex, line = 278):
-   -- Unknown index keyword \section.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 279):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 280):
@@ -563,17 +561,177 @@ Scanning input file relatorio.tex...
 !! Input index error (file = relatorio.tex, line = 282):
    -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 283):
-   -- Unknown index keyword \section.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 284):
-   -- Unknown index keyword \subsection.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 285):
-   -- Unknown index keyword \begin.
+   -- Missing arguments -- need two (premature LFD).
 !! Input index error (file = relatorio.tex, line = 286):
-   -- Unknown index keyword \input.
+   -- Unknown index keyword \end.
 !! Input index error (file = relatorio.tex, line = 287):
-   -- Unknown index keyword \end.
+   -- Unknown index keyword \caption.
 !! Input index error (file = relatorio.tex, line = 288):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 289):
+   -- Unknown index keyword \begin.
+!! Input index error (file = relatorio.tex, line = 290):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 291):
+   -- Unknown index keyword Menu&\boxed.
+!! Input index error (file = relatorio.tex, line = 292):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 293):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 294):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 295):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 296):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 297):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 298):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 299):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 300):
    -- Unknown index keyword \end.
-done (0 entries accepted, 287 rejected).
+!! Input index error (file = relatorio.tex, line = 301):
+   -- Unknown index keyword \caption.
+!! Input index error (file = relatorio.tex, line = 302):
+   -- Unknown index keyword \end.
+!! Input index error (file = relatorio.tex, line = 303):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 304):
+   -- Unknown index keyword \section.
+!! Input index error (file = relatorio.tex, line = 305):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 306):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 307):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 308):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 309):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 310):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 311):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 312):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 313):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 314):
+   -- Unknown index keyword \section.
+!! Input index error (file = relatorio.tex, line = 315):
+   -- Unknown index keyword \lstset.
+!! Input index error (file = relatorio.tex, line = 316):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 317):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 318):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 319):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 320):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 321):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 322):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 323):
+   -- Unknown index keyword rulecolor=\color.
+!! Input index error (file = relatorio.tex, line = 324):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 325):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 326):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 327):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 328):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = relatorio.tex, line = 329):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = relatorio.tex, line = 330):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 331):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 332):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 333):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 334):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 335):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 336):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 337):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 338):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 339):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 340):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 341):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 342):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 343):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 344):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 345):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 346):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 347):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 348):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 349):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 350):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 351):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = relatorio.tex, line = 352):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 353):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 354):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 355):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 356):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 357):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 358):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 359):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 360):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 361):
+   -- Unknown index keyword \subsection.
+!! Input index error (file = relatorio.tex, line = 362):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 363):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 364):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 365):
+   -- Unknown index keyword \subsubsection.
+!! Input index error (file = relatorio.tex, line = 366):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 367):
+   -- Unknown index keyword \lstinputlisting.
+!! Input index error (file = relatorio.tex, line = 368):
+   -- Unknown index keyword \end.
+done (0 entries accepted, 366 rejected).
 Nothing written in relatorio.ind.
 Transcript written in relatorio.ilg.

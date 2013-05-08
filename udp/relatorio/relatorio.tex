@@ -3,7 +3,6 @@
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 %codigo
-\usepackage{listings} 
 %\usepackage[latin1]{inputenc}
 \usepackage{amsthm,amsfonts,amsmath,amssymb}
 %img
@@ -13,6 +12,7 @@
 
 %fim
 %fim
+\usepackage{listings} 
 \usepackage{makeidx}
 \usepackage{enumerate}
 \usepackage{hyperref}
@@ -23,30 +23,7 @@
   urlcolor=blue,
   citecolor=blue 
 }
-\lstset{
-  language = C, % Linguagem de programação
-  basicstyle = \footnotesize, % Tamanho da fonte do código
-  numbers = left, % Posição da numeração das linhas
-  numberstyle = \tiny\color{blue}, % Estilo da numeração de linhas
-  stepnumber = 1, % Numeração das linhas ocorre a cada quantas linhas?
-  numbersep = 10pt, % Distância entre a numeração das linhas e o código
-  backgroundcolor = \color{white}, % Cor de fundo
-  showspaces = false, % Exibe espaços com um sublinhado
-  showstringspaces = false, % Sublinha espaços em Strings
-  showtabs = false, % Exibe tabulação com um sublinhado
-  frame = trBL, % Envolve o código com uma moldura, pode ser single ou trBL
-  rulecolor = \color{black}, % Cor da moldura
-  tabsize = 2, % Configura tabulação em x espaços
-  captionpos = b, % Posição do título pode ser t (top) ou b (bottom)
-  breaklines = true, % Configura quebra de linha automática
-  breakatwhitespace= false, % Configura quebra de linha
-  title = \lstname, % Exibe o nome do arquivo incluido
-  keywordstyle = \color{blue}, % Estilo das palavras chaves
-  commentstyle = \color{dkgreen}, % Estilo dos Comentários
-  stringstyle = \color{mauve}, % Estilo de Strings
-  escapeinside = {\%*}{*)}, % Permite adicionar comandos LaTeX dentro do seu código
-  morekeywords     ={*,...} % Se quiser adicionar mais palavras-chave
-}
+
 %titulo
 \title{Servidor iterativo UDP}
 \author{Leandro Kümmel Tria Mendes RA033910 \\ Fernando Teixeira RA085858}
@@ -143,6 +120,7 @@ relação a outras estruturas, além de ser da implementação e manuntenção s
 simples.
 \\ Com relação a comunicação entre cliente/servidor, vale ressaltar que há uma troca de mensagens\footnote{Sabe-se que o UDP envia/recebe datagrams} inicial entre os dois, na qual o cliente inicia, enviando um pacote apenas para conhecimento do servidor de sua existência, já o servidor responde com um pacote cujo o conteúdo é o número de bytes da maior mensagem possível a ser enviada pelo servidor, seguido de ACK (reconhecimento), enviado pelo cliente.
 Como a função \boxed{recvfrom(int sockfd, void *buf, size\_t len, int flags,struct sockaddr *src\_addr, socklen\_t *addrlen);}\footnote{\url{http://linux.die.net/man/2/recvfrom}} começa a ler o buffer, o qual é escrito o datagram enviado pelo servidor, antes do mesmo estar com completo, em outras palavras, antes de toda mensagem enviada pelo servidor estar escrita no buffer então, o número de bytes das mensagens mostra-se necessário, uma vez que, podemos controlar a função, junto ao envio de mensagens de controle (ACK\footnote{Veja tcp.h[\ref{itm:tcp}]}), afim de ler o buffer apenas quando o mesmo estiver completo.\footnote{The receive calls normally return any data available, up to the requested amount, rather than waiting for receipt of the full amount requested.}
+\newpage
 \begin{figure}[!htb]
   \centering
   \subfloat[Fluxograma Servidor]{
@@ -157,6 +135,7 @@ Como a função \boxed{recvfrom(int sockfd, void *buf, size\_t len, int flags,st
    \caption{Fluxogramas}
    \label{figfluxos}
 \end{figure}
+\newpage
 \begin{figure}[!htb]
   \centering
   \label{fluxotempo}
@@ -283,6 +262,14 @@ Seja \boxed{\mu_t}, \boxed{\mu_p}, \boxed{\mu_c}, a média do tempo total, médi
 respectivamente, e o desvio padrão do tempo de comunicação, de
 nominado \boxed{\sigma_c}.
 \newpage
+\begin{figure}[!htb]
+  \centering
+  \subfloat[Gráficos Tempo de comunicação e total]{
+  \includegraphics[width=300px,height=500px]{graficos.png}
+  \label{graficos}
+  }
+\end{figure}
+\newpage
 \begin{table}
   \centering
   \begin{tabular}{|c|c|c|c||c|}
@@ -297,15 +284,85 @@ nominado \boxed{\sigma_c}.
     6 & 400696,12 & 201315,01 & 199381.11 & 19006.89 (8,55\%)\\
     \hline
   \end{tabular}
-  \caption{Tabela com médias e desvios}
+  \caption{Tabela com médias e desvios para protocolo UDP}
+  \centering
+  \begin{tabular}{|c|c|c|c||c|}
+    \hline
+    Menu & \boxed{\mu_t} & \boxed{\mu_p} & \boxed{\mu_c} &  \boxed{\pm \sigma_c} \\
+    \hline
+    1 & 229928.97 & 59.43 & 229869.54 & 80776.07 (35,13\%)\\
+    2 & 477881.95 & 236349.80 & 241532.15  & 94761.02 (39.23\%)\\
+    3 & 489242.44 & 245704.79 & 243537.65 & 70828.31 (29,08\%)\\
+    4 & 494792.56 & 559.17 & 494233.39 & 305558.45 (61,82\%)\\
+    5 & 1027348.23 & 727262.31 & 300085.92 & 77658.26 (25,87\%)\\
+    6 & 458069.60 & 232573.16 & 225496.44 & 61852.36 (30.09\%)\\
+    \hline
+  \end{tabular}
+  \caption{Tabela com médias e desvios para protocolo TCP}
 \end{table}
-\section{Conclusão}
-PAREI AQUI
-Nota-se que as opções 1, 2, 3 e 6 têm o tempo de comunicação parecidos, uma vez que a quantidade de dados transmitida não difere muito um do outro. Já a opção 4 e 5 
-possuem um alto tempo de comunicação (consequentemente alto tempo total) devido, respectivamente, ao grande volume de dados transmitidos e a quantidade de mensagens
-de comunicação (o menu 5 requer ISBN, senha e quantidade em estoque).
 \newpage
-\section{Código fonte}
-\subsection{error.c}
-%\lstinputlisting{../../tcp/common/error.c}
+\section{Conclusão}
+Visto a simplicidade do protocolo UDP, tal como ausência de mecanismos de controle de fluxo, confiabilidade da entrega do pacote e o uso de datagrams, ao invez de 
+streams, utilizados no protocolo TCP, espera-se um tempo de comunicação menor. Os dados do sistema com UDP não foram comparados com os dados obtidos com o TCP no 
+relatório anterior, e sim novos testes para esse último foram realizados. Como previsto, o procotolo UDP teve um tempo de comunicação menor, chegando a uma 
+diferença de 46.12\% no caso da opção 4 do menu (envio de apenas uma requisição por parte do cliente), 70.03\% opção 5 (envio de 3 requisições, e 4 respostas entre cliente/servidor). Nota-se que os desvio padrão de ambos os protocolos mas, principalmente do TCP, são altos, isso ocorre, provavelmente, a uma grande instabilidade
+da rede, uma vez que utiliza-se rede sem fio (há uma perda considerável de pacotes, sendo que o TCP garante a entrega e não duplicada) e também, pelo mesmo motivo 
+que os testes, para o TCP, foram refeitos, a rede no dia dos testes apresentava-se lenta e com falhas na comunicação para qualquer aplicação que a utiliza-se.
+Portanto, concluimos que o protocolo UDP, realmente, é indicado para aplicações que necessitem de velocidade e simplicidade na comunicação entre cliente e servidor.
+Já sistemas que requerem confiabilidade, tal como garantia da integridade e entrega da informação, o protocolo TCP seria o mais indicado.
+\newpage
+\section{Código fonte \textit{(.c)}}
+\lstset{ 
+   basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+   breaklines=true,                 % sets automatic line breaking
+   captionpos=b,                    % sets the caption-position to bottom
+   frame=single,                    % adds a frame around the code
+   language=C,		                 % the language of the code
+   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+   numbersep=5pt,                   % how far the line-numbers are from the code
+   rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+   showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+   showstringspaces=false,          % underline spaces within strings only
+   showtabs=false,                  % show tabs within strings adding particular underscores
+   tabsize=2,                       % sets default tabsize to 2 spaces
+}
+\subsection{Diretório \textit{commons}}
+\subsubsection{\label{itm:error.c}\emph{error.h error.c}}
+\lstinputlisting{../../tcp/common/error.h}
+\lstinputlisting{../../tcp/common/error.c}
+\subsubsection{\label{itm:common.c}\emph{commmon.h common.c}}
+\lstinputlisting{../../tcp/common/common.h}
+\lstinputlisting{../../tcp/common/common.c}
+\subsubsection{\label{itm:avl.c}\emph{avl.h avl.c}}
+\lstinputlisting{../../tcp/common/avl.h}
+\lstinputlisting{../../tcp/common/avl.c}
+\subsubsection{\label{itm:archives.c}\emph{archives.h archives.c}}
+\lstinputlisting{../../tcp/common/archives.h}
+\lstinputlisting{../../tcp/common/archives.c}
+\subsubsection{\label{itm:books.c}\emph{books.h books.c}}
+\lstinputlisting{../../tcp/common/books.h}
+\lstinputlisting{../../tcp/common/books.c}
+\subsubsection{\label{itm:tcp.c}\emph{tcp.h tcp.c}}
+\lstinputlisting{../../tcp/common/tcp.h}
+\lstinputlisting{../../tcp/common/tcp.c}
+\subsubsection{\label{itm:tempo.c}\emph{tempo.h tempo.c}}
+\lstinputlisting{../../tcp/common/tempo.h}
+\lstinputlisting{../../tcp/common/tempo.c}
+\subsection{Diretório \textit{server}}
+\subsubsection{\label{itm:server.c}\emph{server.h server.c}}
+\lstinputlisting{../server/server.h}
+\lstinputlisting{../server/server.c}
+\subsubsection{\label{itm:udpserver.c}\emph{udpserver.h udpserver.c}}
+\lstinputlisting{../server/udp_server.h}
+\lstinputlisting{../server/udp_server.c}
+\subsubsection{\label{itm:login.c}\emph{login.h login.c}}
+\lstinputlisting{../server/login.h}
+\lstinputlisting{../server/login.c}
+\subsection{Diretório \textit{client}}
+\subsubsection{\label{itm:client.c}\emph{client.h client.c}}
+\lstinputlisting{../client/client.h}
+\lstinputlisting{../client/client.c}
+\subsubsection{\label{itm:udpclient.c}\emph{udpclient.h udpclient.c}}
+\lstinputlisting{../client/udp_client.h}
+\lstinputlisting{../client/udp_client.c}
 \end{document}

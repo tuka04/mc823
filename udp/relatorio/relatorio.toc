@@ -7,12 +7,26 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Conex\IeC {\~a}o Servidor/Cliente}{4}{subsubsection.2.2.2}
 \contentsline {subsection}{\numberline {2.3}Coleta e ger\IeC {\^e}ncia de dados para testes}{5}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Vantagens da implementa\IeC {\c c}\IeC {\~a}o}{5}{subsection.2.4}
-\contentsline {section}{\numberline {3}Resultados e discuss\IeC {\~o}es}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}Tabelas e gr\IeC {\'a}ficos}{8}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Tempo total}{8}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}Tempo de processamento}{10}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}M\IeC {\'e}dias e gr\IeC {\'a}ficos}{12}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}C\IeC {\'a}lculos}{12}{subsubsection.3.2.1}
-\contentsline {section}{\numberline {4}Conclus\IeC {\~a}o}{13}{section.4}
-\contentsline {section}{\numberline {5}C\IeC {\'o}digo fonte}{14}{section.5}
-\contentsline {subsection}{\numberline {5.1}error.c}{14}{subsection.5.1}
+\contentsline {section}{\numberline {3}Resultados e discuss\IeC {\~o}es}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}Tabelas e gr\IeC {\'a}ficos}{9}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Tempo total}{9}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Tempo de processamento}{11}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}M\IeC {\'e}dias e gr\IeC {\'a}ficos}{13}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}C\IeC {\'a}lculos}{13}{subsubsection.3.2.1}
+\contentsline {section}{\numberline {4}Conclus\IeC {\~a}o}{15}{section.4}
+\contentsline {section}{\numberline {5}C\IeC {\'o}digo fonte \textit {(.c)}}{16}{section.5}
+\contentsline {subsection}{\numberline {5.1}Diret\IeC {\'o}rio \textit {commons}}{16}{subsection.5.1}
+\contentsline {subsubsection}{\numberline {5.1.1}\emph {error.h error.c}}{16}{subsubsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.2}\emph {commmon.h common.c}}{17}{subsubsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.3}\emph {avl.h avl.c}}{19}{subsubsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.4}\emph {archives.h archives.c}}{25}{subsubsection.5.1.4}
+\contentsline {subsubsection}{\numberline {5.1.5}\emph {books.h books.c}}{26}{subsubsection.5.1.5}
+\contentsline {subsubsection}{\numberline {5.1.6}\emph {tcp.h tcp.c}}{30}{subsubsection.5.1.6}
+\contentsline {subsubsection}{\numberline {5.1.7}\emph {tempo.h tempo.c}}{30}{subsubsection.5.1.7}
+\contentsline {subsection}{\numberline {5.2}Diret\IeC {\'o}rio \textit {server}}{33}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}\emph {server.h server.c}}{33}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}\emph {udpserver.h udpserver.c}}{34}{subsubsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.3}\emph {login.h login.c}}{46}{subsubsection.5.2.3}
+\contentsline {subsection}{\numberline {5.3}Diret\IeC {\'o}rio \textit {client}}{46}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}\emph {client.h client.c}}{46}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}\emph {udpclient.h udpclient.c}}{47}{subsubsection.5.3.2}

@@ -10,7 +10,7 @@ int openSocket(struct addrinfo *a){
     printError(ERROR_SOCKET);/*print erro*/
     exit(1);/*saida inesperada*/
   }
-  /*não é orientado a conexão, como o tcp*/
+  /*nao eh orientado a conexao, como o tcp*/
   return sDesc;/*retorna sockdescriptor*/
 }
 

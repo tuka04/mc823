@@ -44,7 +44,7 @@ void printError(int e){
   case ERROR_NUM_COLUNAS_BOOKS:
     printf("archives:: Arquivo com conteudo de livros corrompido. VEJA README PARA MAIS DETALHES\n");
   case ERROR_UDP_MAX_RETRY:
-    perror("udp_sendto:: Limite máximo de tentativas de envio, altere UDP_MAX_RETRY \n");
+    perror("udp_sendto:: Limite maximo de tentativas de envio, altere UDP_MAX_RETRY \n");
     break;
   }
 }

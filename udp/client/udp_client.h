@@ -20,7 +20,7 @@
 
 /**
  * Funcao que abre um socket
- * Utiliza IPv4 (AF_INET) e SOCK_DGRAM, não orientado a conexão!
+ * Utiliza IPv4 (AF_INET) e SOCK_DGRAM, nao orientado a conexao!
  * @example
  * struct sockaddr_in {
  *   sa_family_t    sin_family; address family: AF_INET 

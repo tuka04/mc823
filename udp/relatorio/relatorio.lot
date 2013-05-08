@@ -1,4 +1,5 @@
 \select@language {brazil}
-\contentsline {table}{\numberline {1}{\ignorespaces Tabela de tempo total}}{9}{table.1}
-\contentsline {table}{\numberline {2}{\ignorespaces Tabela de tempo de processamento}}{11}{table.2}
-\contentsline {table}{\numberline {3}{\ignorespaces Tabela com m\IeC {\'e}dias e desvios}}{13}{table.3}
+\contentsline {table}{\numberline {1}{\ignorespaces Tabela de tempo total}}{10}{table.1}
+\contentsline {table}{\numberline {2}{\ignorespaces Tabela de tempo de processamento}}{12}{table.2}
+\contentsline {table}{\numberline {3}{\ignorespaces Tabela com m\IeC {\'e}dias e desvios para protocolo UDP}}{15}{table.3}
+\contentsline {table}{\numberline {4}{\ignorespaces Tabela com m\IeC {\'e}dias e desvios para protocolo TCP}}{15}{table.4}

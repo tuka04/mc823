@@ -145,18 +145,22 @@ void build_teste(int sDesc,struct in_addr addr, int port){
     printf("%d",msgT[i]);
     max = send(sDesc,my_itoa(msgT[i],10),strlen(my_itoa(msgT[i],10)),0);
     if(msgT[i]==2 || msgT[i]==3 || msgT[i]==5 || msgT[i]==6){//precisa de isbn
-      max = recv(sDesc,recvMsg,tcpBuffSize,0);
-      recvMsg[max]='\0';
-      printf("%s",recvMsg);
-      if(strcmp(recvMsg,TCP_MSG_ISBN_REQUIRED)==0){//caso receba req. isbn
+      do{
+	max = recv(sDesc,recvMsg,tcpBuffSize,0);
+	recvMsg[max]='\0';
+	printf("%s",recvMsg);
+      }while(strcmp(recvMsg,TCP_MSG_ISBN_REQUIRED)!=0 || max>strlen(TCP_MSG_ISBN_REQUIRED));
+      if(strcmp(recvMsg,TCP_MSG_ISBN_REQUIRED)==0){
 	random=rand()%13;
 	max = send(sDesc,isbn[random],strlen(isbn[random]),0);
 	printf(" SEND %s+ ",isbn[random]);
 	if(msgT[i]==5){//precisa de senha && qntidade
-	  max = recv(sDesc,recvMsg,tcpBuffSize,0);
-	  recvMsg[max]='\0';
-	  printf("%s",recvMsg);
-	  if(strcmp(recvMsg,TCP_MSG_LOGIN_REQUIRED)==0){//caso receba req. login
+	  do{
+	    max = recv(sDesc,recvMsg,tcpBuffSize,0);
+	    recvMsg[max]='\0';
+	    printf("%s",recvMsg);
+	  }while(strcmp(recvMsg,TCP_MSG_LOGIN_REQUIRED)!=0 || max>strlen(TCP_MSG_LOGIN_REQUIRED));
+	  if(strcmp(recvMsg,TCP_MSG_LOGIN_REQUIRED)==0){
 	    max = send(sDesc,SENHA,strlen(SENHA),0);
 	    printf(" SEND %s+ ",SENHA);
 	    max = recv(sDesc,recvMsg,tcpBuffSize,0);
@@ -169,7 +173,7 @@ void build_teste(int sDesc,struct in_addr addr, int port){
 	      max = recv(sDesc,recvMsg,tcpBuffSize,0);//opcao
 	      recvMsg[max]='\0';
 	    }//qntd
-	  }//ogin
+	  }
 	}
 	else{
 	  max = recv(sDesc,recvMsg,tcpBuffSize,0);//opcao
@@ -179,6 +183,7 @@ void build_teste(int sDesc,struct in_addr addr, int port){
       printf("@%s@",recvMsg);
     }
     else if(msgT[i]==4){
+      rc=0;
       do{
 	max = recv(sDesc,(void *)recvMsg,tcpBuffSize,0);//-1 error, 0 closed
 	if(max<0){
@@ -192,7 +197,7 @@ void build_teste(int sDesc,struct in_addr addr, int port){
 	  send(sDesc,TCP_MSG_ACK,strlen(TCP_MSG_ACK),0);//send message     
 	rc+=max;
       }while(rc<tcpBuffSize);
-      }
+    }
     else{
       max = recv(sDesc,(void *)recvMsg,tcpBuffSize,0);//-1 error, 0 closed
       recvMsg[max]='\0';
