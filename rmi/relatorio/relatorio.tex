@@ -1,0 +1,377 @@
+%*************************************************
+\documentclass[a4paper,10pt]{article}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+%codigo
+%\usepackage[latin1]{inputenc}
+\usepackage{amsthm,amsfonts,amsmath,amssymb}
+%img
+\usepackage{graphicx}
+\usepackage{subfig}
+%tabela
+
+%fim
+%fim
+\usepackage{listings} 
+\usepackage{makeidx}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  filecolor=blue,
+  urlcolor=blue,
+  citecolor=blue 
+}
+
+%titulo
+\title{Servidor RMI}
+\author{Leandro Kümmel Tria Mendes RA033910 \\ Fernando Teixeira RA085858}
+\makeindex
+%inicio
+\begin{document}
+\maketitle
+\begin{figure}[!htb]
+  \centering
+  \includegraphics[scale=0.5]{logo.jpg}
+\end{figure}
+\newpage
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+\section{Introdução}
+O objetivo desse projeto é implementar um sistema cliente/servidor, com operações para o gerenciamento de livros em uma livraria.
+Na comunicação entre cliente e servidor utilizou-se a interface de programação de chamadas remotas RMI\footnote{
+Mais informações sobre RMI \url{http://docs.oracle.com/javase/tutorial/rmi/overview.html} } e a partir da execução de testes podemos avaliar alguns aspectos
+desse protocolo e posteriormente compará-lo com os projetos anteriores, no qual foi utilizado o TCP como protocolo.
+\section{Desenvolvimento}
+Linux foi o sistema operacional utilizado para o desenvolvimento (distribuição
+2.6.43.8-1.fc15.i686). Igualmente, para os testes utilizou-se duas máquinas com linux, porém com distribuições diferentes.
+\subsection{RMI - Remote Method Invocation}
+O nível de abstração do RMI, para o programador, é maior em comparação aos projetos anteriores. Esse sistema possui um conjunto de operações e recursos que 
+estão envolvidos no processo de invocação do método remoto. A implementação do RMI é essencialmente feita em três camadas, que por ordem de \"proximidade do programador\", são: 
+\begin{itemize}
+\item \label{itm:stubskeleton}\emph{Camada Stub/Skeleton}: Podemos classificar o Stub, que reside no lado do cliente, como um proxie para um objeto remoto, ou seja, o Stub é responsável por receber
+os parâmetros dos métodos e encaminha-los para o Skeleton.  Esse no entando, residente do servidor, recebe os parâmetros enviados pelo primeiro e executa as chamadas
+no objeto remoto. O Skeleton também é responsável por entregar ao Stub o retorno dos métodos remoto, e esse por fim, lê os resultados e retorna os valores ao 
+objeto que inicialmente executou a chamada.
+\item \emph{Camada de referência remota - RRL}: Logo abaixo da camada Stub/Skeleton[\ref{itm:stubskeleton}] a RRL gerência e interpreta as refências remotas. Essa camada estabelece a semântica da ligação RMI, e as refêrencias entre o cliente e servidor (objetos remotos) é unicast, em outras palavras, um Stub para um Skeleton.
+\item \label{itm:tranportetcp} \emph{Camada de transporte TCP}: Essa última camada do RMI assegura a ligação entre as VM\footnote{Virtual Machine: http://en.wikipedia.org/wiki/VirtualMachine} através do protocolo TCP/IP, já especificado no projeto anterior. 
+\end{itemize}
+\subsection{Implementação}
+O projeto conta apenas com quatro diretórios, bin, src, relatorio e estat e um README.md\footnote{Leia esse arquivo antes de
+executar o sistema} para instruções adicionais. Há também um Makefile, por diretório e subdiretório, o qual 
+compila e executa o sistema.
+\\Os diretório são:
+\begin{enumerate}[I.]
+  \label{sec:dirs}
+\item \label{itm:bin} \emph{bin}: Contém os binários do projeto, incluindo o stub/skeletons[\ref{itm:stubskeleton}].
+\item \label{itm:src} \emph{src}: Contém os pacotes, e classes, do projeto. Importante lembrar que há o mysql-connector.jar, necessário
+  para a conexão com o banco de dados para buscar resultados da biblioteca.
+\item \label{itm:estat} \emph{estat}: Medidas de tempo efetuadas pelo teste.
+\item \label{itm:relatorio} \emph{relatorio}
+\end{enumerate}
+
+O diretório src[\ref{itm:src}] contém os pacotes do projeto, que são:
+\begin{enumerate}[I.] 
+  \label{sec:packs}
+\item \label{itm:common} \emph{common}: Contém algumas variaveis/classes comum tanto ao cliente, quanto ao servidor. Há também a classe que marca e calcula o tempo
+  e as estatísticas.
+\item \label{itm:biblioteca} \emph{biblioteca}: Contém as classes que manipulam a biblioteca, incluindo os métodos distribuidos, em outras palavras, os métodos que são
+  acessados pelo cliente, ou seja, esse pacote pertence ao servidor.
+\item \label{itm:client} \emph{client}: Pacote exclusivo do cliente, que contém apenas as classes de execução do cliente e dos testes.
+\item \label{itm:server} \emph{server}: Pacote exclusivo do servidor, que contém apenas a classes responsável por controle do servidor, ou seja,
+  faz o \"rebind\" do mesmo esperando por conexões dos clientes.
+\end{enumerate}
+
+\subsubsection{Manipulação de dados}
+Diferentemente dos projetos anteriores, a manipulação dos dados é feita em conjunto com um banco de dados ( MySQL\footnote{\url{http://www.mysql.com/}} ) portanto,
+ganha-se em simplicidade de implementação.
+\\Arquivos presentes nos pacotes \emph{common}[\ref{itm:common}] e \emph{biblioteca}[\ref{itm:biblioteca}] :
+\\\textbf{Common}:
+\begin{enumerate}[I.]
+\item \label{itm:commonvarsj}\emph{CommonVars.java}: Contém as variáveis estáticas utilizadas por ambos os lados do projetos, ou seja, tanto pelo cliente quanto pelo servidor.
+\item \label{itm:inoutj} \emph{InOut.java}: Controla a parte de entrada/saída do programa, assim como a escrita, das estatísticas, em arquivos.
+\item \label{itm:tempoj} \emph{Tempo.java}: Classe que contém os métodos que controla o tempo em nanosegundos (esse futuramente é transformado em milisegundos,
+  para carater de comparação.
+\end{enumerate}
+\textbf{Bibliotecas}:
+\begin{enumerate}[I.]
+\item \label{itm:bibliotecaj} \emph{Biblioteca.java}: Interface para a BibliotecaImpl, citada abaixo.
+\item \label{itm:bibliotecaimplj} \emph{BibliotecaImpl.java}: Implementa a interface Biblioteca e contém os métodos acessados pelo cliente. Há também a conexão e consulta junto
+  ao banco de dados.
+\item \label{itm:livroj} \emph{Livro.java}: Objeto Livro, contém os atributos do mesmo, tal como, isbn, quantidade, título.
+\item \label{itm:menuj} \emph{Menu.java}: Gerencia o menu básico do sistema.
+\item \label{itm:usuarioj} \emph{Usuario.java}: Gerencia o login necessário para editar a quantidade de um livro.
+\end{enumerate}
+\subsubsection{Conexão Servidor/Cliente}
+Compreende dois pacotes \emph{server}[\ref{itm:server}] e \emph{client}[\ref{itm:client}]
+\\\textbf{Servidor}:
+\begin{enumerate}[I.]
+\item \label{itm:serverj} \emph{Server.java}: Responsável por fazer o \"rebind\" do servidor, ou seja, nomea-lo e abrir a porta especificada em CommonVars.java[\ref{itm:commonvarsj}], além de atribuir o 
+skeleton. A inicialização do RMI é feito durante o tempo de execução.
+\end{enumerate}
+\textbf{Cliente}:
+\begin{enumerate}[I.]
+\item \label{itm:clientj} \emph{Cliente.java}: Faz o \"lookup\" pelo servidor, ou seja, pesquisa pelo endereço do servidor, dado em CommonVars.java[\ref{itm:commonvarsj}].
+\item \label{itm:testerj} \emph{Tester.java}: Mesma estrutura que o Cliente.java[\ref{itm:clientj}], porém executa os testes comparativos com os projetos anteriores.
+\end{enumerate}
+\subsection{Coleta e gerência de dados para testes}
+Para realizar os testes implementou-se alguns arquivos adicionas[\ref{itm:tempoj}] [\ref{itm:testerj}]. Uma constante, denominada \emph{TOTAL}\footnote{Nesse sistema consideramos TOTAL igual a 100} , contém o número de testes a serem realizados, ou seja, cada opção do \emph{menu}[\ref{itm:menuj}] é executada \emph{TOTAL} vezes. Todos os dados são 
+salvos no diretório \emph{estat}[\ref{itm:estat}].
+\subsection{Vantagens da implementação}
+O sistema de livraria é um sistema robusto e com baixa complexidade de tempo.
+A escolha do banco de dados mysql, possibilitou em boa 
+performance em questão de tempo de processamento e também um maior nível de abstração, uma vez que, essa estrutura
+mostrou-se eficaz para o problema e tem melhor complexidade de tempo com 
+relação a outras estruturas, como a simples leitura em arquivos, além de ser da implementação e manuntenção serem
+simples.
+\\ Com relação a comunicação entre cliente/servidor, o nível de abstração é maior em comparação com os projetos anteriores, por exemplo, a não preocupação com a 
+leitura do buffer, como havia no caso do TCP e UDP, também não é necessário se preocupar com os \"zumbis\" presentes no protocolo TCP.
+\newpage
+\begin{figure}[!htb]
+  \centering
+  \subfloat[Fluxograma Servidor]{
+  \includegraphics[width=150px,height=300px]{fluxo_servidor.png}
+  \label{fluxoservidor}
+  }
+  \quad %espaco separador
+   \subfloat[Fluxograma Cliente]{
+     \label{fluxoserver}
+     \includegraphics[width=150px,height=300px]{fluxo_cliente.png}
+   }
+   \caption{Fluxogramas}
+   \label{figfluxos}
+\end{figure}
+\newpage
+\begin{figure}[!htb]
+  \centering
+  \label{fluxotempo}
+  \includegraphics[scale=0.5]{fluxo_tempo.png}
+  \caption{Definição do cálculo dos tempos}
+\end{figure}
+\newpage
+\section{Resultados e discussões}
+Os testes foram efetuados em duas máquinas, ambas conectadas à rede porém, não localmente. Denominaremos a máquina servidor como [S] e a cliente como [C]. [S] e [C] estão em continentes diferentes.
+\\Foram efetuadas 100 medições para cada opção do \emph{menu}[\ref{itm:menuj}], ao todo foram 600 medições de tempo. Dividiu-se o tempo em tempo de processamento e tempo de comunicação, sendo o último a diferença entre o tempo total e o tempo de processamento.
+\\Abaixo demostramos o \emph{traceroute}\footnote{\url{http://en.wikipedia.org/wiki/Traceroute}}, o qual mostra a rota percorrida por um pequeno pacote, marcando assim os roteadores por qual passa. Vale ressaltar que os teste 
+foram realizados em uma rede sem fio, sendo assim há uma perda maior de pacotes, e quanto maior a rota a ser percorrida, também espera-se uma perda maior, porém 
+como descrito anteriormente[\ref{itm:transportetcp}], o RMI utilizada na camada de transporte o protocolo TCP, o qual garante a entrega, em ordem, da mensagem.
+\lstinputlisting{traceroute}
+\subsection{Tabelas e gráficos}
+\subsubsection{Tempo total}[\ref{fluxotempo}]
+Representaremos todas as 100 medidas das 6 opções do \emph{menu}[\ref{itm:menuj}]
+\begin{table}
+  \tiny
+  \centering
+  \begin{tabular}{|c|}
+    \hline
+    Opção 1 [ms] \\
+    \hline
+    \input{dados/tt_1.tex}    
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 2 [ms] \\
+    \hline
+    \input{dados/tt_2.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 3 [ms] \\
+    \hline
+    \input{dados/tt_3.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 4 [ms] \\
+    \hline
+    \input{dados/tt_4.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 5 [ms] \\
+    \hline
+    \input{dados/tt_5.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 6 [ms] \\
+    \hline
+    \input{dados/tt_6.tex}
+    \hline
+  \end{tabular}
+  \caption{Tabela de tempo total}
+\end{table}
+\newpage
+\subsubsection{Tempo de processamento}[\ref{fluxotempo}]
+Representaremos todas as 100 medidas das 6 opções do \emph{menu}[\ref{itm:menuj}]
+\begin{table}
+  \tiny
+  \centering
+  \begin{tabular}{|c|}
+    \hline
+    Opção 1 [ms] \\
+    \hline
+    \input{dados/tp_1.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 2 [ms] \\
+    \hline
+    \input{dados/tp_2.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 3 [ms] \\
+    \hline
+    \input{dados/tp_3.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 4 [ms] \\
+    \hline
+    \input{dados/tp_4.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 5 [ms] \\
+    \hline
+    \input{dados/tp_5.tex}
+    \hline
+  \end{tabular}
+  \begin{tabular}{|c|}
+    \hline
+    Opção 6 [ms] \\
+    \hline
+    \input{dados/tt_6.tex}
+    \hline
+  \end{tabular}
+  \caption{Tabela de tempo de processamento}
+\end{table}
+\newpage
+\subsection{Médias e gráficos}
+Devido ao grande número de dados decidimos por representar graficamente apenas as
+médias e desvios de cada opção do \emph{menu}[\ref{itm:menuj}].\\
+\subsubsection{Cálculos}
+A média calculada entre os pontos foi a média simples, em outras palavras, denominamos a 
+média como \boxed{\mu} então, \boxed{\mu = \frac{1}{N}\sum_{i=1}^{N}\left(x_i\right)}, onde N
+é o número de pontos, no caso desse projeto temos N=100 medidas para cada uma das opções de menu[\ref{itm:tcpserver}].\\
+Já o desvio padrão amostral, denominado \boxed{\sigma} é calculado como \boxed{\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}\left(x_i - \mu\right)^2}}\\
+Seja \boxed{\mu_t}, \boxed{\mu_p}, \boxed{\mu_c}, a média do tempo total, média do tempo de processamento e média do tempo de comunicação,
+respectivamente, e o desvio padrão do tempo de comunicação, de
+nominado \boxed{\sigma_c}.
+\newpage
+\begin{figure}[!htb]
+  \centering
+  \subfloat[Gráficos Tempo de comunicação e total]{
+  \includegraphics[width=300px,height=500px]{graficos.png}
+  \label{graficos}
+  }
+\end{figure}
+\newpage
+\begin{table}
+  \centering
+  \begin{tabular}{|c|c|c|c||c|}
+    \hline
+    Menu & \boxed{\mu_t} & \boxed{\mu_p} & \boxed{\mu_c} &  \boxed{\pm \sigma_c} \\
+    \hline
+    1 & 209802.51 & 2313.57 & 207488.94 & 30464.18 (14,68\%)\\
+    2 & 205886.77 & 1913.04 & 203973.73  & 12627.63 (6,19\%)\\
+    3 & 220287.99 & 2250.85 & 218037.14 & 86018.67 (3,95\%)\\
+    4 & 432944.65 & 11673.84 & 421270.81 & 44415.33 (10,54\%)\\
+    5 & 411566.99 & 1932.92 & 409634.07 & 28004.75 (6,38\%)\\
+    6 & 205504.94 & 1867.76 & 203637.18 & 22187.58 (28,89\%)\\
+    \hline
+  \end{tabular}
+  \caption{Tabela com médias e desvios para RMI}
+  \centering
+  \begin{tabular}{|c|c|c|c||c|}
+    \hline
+    Menu & \boxed{\mu_t} & \boxed{\mu_p} & \boxed{\mu_c} &  \boxed{\pm \sigma_c} \\
+    \hline
+    1 & 202560.05 & 60.41 & 202499.64 & 10252.64 (5,06\%)\\
+    2 & 403655.22 & 201822.13 & 201833.09 & 7159.37 (3,54\%)\\
+    3 & 404796.77 & 202373.30 & 202423.47 & 4133.69 (2,04\%)\\
+    4 & 399065.79 & 563.89 & 398501.90 & 100786.75 (25,29\%)\\
+    5 & 855097.01 & 607144.72 & 247952.29 & 51358.97 (20,71\%)\\
+    6 & 400975.64 & 200207.89 & 200767.75 & 5832.36 (2,91\%)\\
+    \hline
+  \end{tabular}
+  \caption{Tabela com médias e desvios para protocolo TCP}
+\end{table}
+\subsection{Discussão}
+Vamos definir três componentes no cálculo comparativo entre o TCP, implementado em C, o qual chamaremos de TCP nativo, e o RMI, que utiliza
+TCP como protocolo da camada de transporte. São eles: 
+\begin{enumerate}[I.]
+  \label{sec:componentes}
+\item \label{itm:simplicidade} \emph{Simplicidade - [S]}: Relativo ao tempo para escrever o código fonte do projeto, a quantidade de linhas escritas e complexidade de implementação.
+\item \label{itm:tempc} \emph{Tempo de comunicacao - [TC]}: Tempo de comunicação, já calculado.
+\item \label{itm:tempp} \emph{Tempo de processamento - [TP]}: Tempo de processamento, já calculado.
+\end{enumerate}
+\\
+Para o cálculo comparativo entre os dois sistemas colocamos peso maior nos tempos de comunicação pois, em nosso projeto queremos focar essa variável porém, há casos em que o importante para o projeto seja
+uma implementação rápida, de baixo complexidade de organização entre outros fatores que favorecem a simplicidade [S]. O tempo de processamento recebeu o menor peso pois, consideramos que essa componente varia muito entre aplicações e algoritmos utilizados por elas.
+Visto que o sistema escrito em \emph{Java}, ou seja, o RMI é muito mais simples do que o escrito em C, o projeto de TCP nativo. Também, há opções do menu na qual o
+RMI obtem menor tempo total devido ao tempo de processamento, nota-se que o mesmo foi superior, ou seja, foi na média 279.68\% mais rápido, isso explica-se ao uso de
+banco de dados ao invéz de um simples leitura e escrita de arquivos, utilizando árvore AVL\footnote{Vide projeto 1 e 2} como estrutura. Já, para a componente [TC]
+(como citado acima a com maior peso no projeto), temos que na média o TCP nativo foi superior em 13.92\% ao RMI, chegando a 65.20\% no caso do menu 5, onde há, 
+uma maior troca de mensagens entre o cliente e servidor antes de parar o cronômetro.
+\end{enumerate}
+\section{Conclusão}
+Como escolhemos a componente tempo de comunicação, temos que o sistema TCP nativo, escrito na linguagem C, foi mais rápido do que o RMI, escrito em JAVA. Porém,
+é importante notar que a diferença é pequena em comparação ao ganho em termos das componentes de simplicidade e tempo de processamento do RMI. Logo, conclui-se
+que dependendo da aplicação que será desenvolvida pode-se escolher o RMI como solução, já que provê uma abstração maior ao programador, todavia se o projeto
+requer uma menor abstração e um tempo de comunicação menor, então a escolha fica com o TCP nativo.
+\section{Código fonte \textit{(.java)}}
+\lstset{ 
+   basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+   breaklines=true,                 % sets automatic line breaking
+   captionpos=b,                    % sets the caption-position to bottom
+   frame=single,                    % adds a frame around the code
+   language=Java,		    % the language of the code
+   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+   numbersep=5pt,                   % how far the line-numbers are from the code
+   rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+   showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+   showstringspaces=false,          % underline spaces within strings only
+   showtabs=false,                  % show tabs within strings adding particular underscores
+   tabsize=2,                       % sets default tabsize to 2 spaces
+}
+\subsection{Pacote \textit{common}}
+\subsubsection{\label \emph{CommonVars.java}}
+\lstinputlisting{../src/common/CommonVars.java}
+\subsubsection{\label\emph{InOut.java}}
+\lstinputlisting{../src/common/InOut.java}
+\subsubsection{\label\emph{Tempo.java}}
+\lstinputlisting{../src/common/Tempo.java}
+\subsection{Pacote \textit{biblioteca}}
+\subsubsection{\label\emph{Biblioteca.java}}
+\lstinputlisting{../src/biblioteca/Biblioteca.java}
+\subsubsection{\label\emph{BibliotecaImpl.java}}
+\lstinputlisting{../src/biblioteca/BibliotecaImpl.java}
+\subsubsection{\label\emph{Livro.java}}
+\lstinputlisting{../src/biblioteca/Livro.java}
+\subsubsection{\label\emph{Menu.java}}
+\lstinputlisting{../src/biblioteca/Menu.java}
+\subsubsection{\label\emph{Usuario.java}}
+\lstinputlisting{../src/biblioteca/Usuario.java}
+\subsection{Pacote \textit{server}}
+\subsubsection{\label\emph{Server.java}}
+\lstinputlisting{../src/server/Server.java}
+\subsection{Pacote \textit{client}}
+\subsubsection{\label\emph{Client.java}}
+\lstinputlisting{../src/client/Client.java}
+\subsubsection{\label\emph{Tester.java}}
+\lstinputlisting{../src/client/Tester.java}
+\end{document}
